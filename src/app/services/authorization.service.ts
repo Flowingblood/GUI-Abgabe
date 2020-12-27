@@ -12,7 +12,7 @@ export class AuthorizationService {
     private http: HttpClient,
     private backendService: BackendService
   ) {}
-
+  //TODO
   private user: User = {
     id: 0,
     username: "Benutzer",
