@@ -3,12 +3,12 @@
 
 <mat-form-field style="width: 100%;">
     <mat-label>Ziel Name</mat-label>
-    <input matInput >
+    <input matInput value="{{goal.name}}">
 
 </mat-form-field>
 
 <div mat-dialog-actions align="end">
     
-    <button type="button" color="warn" mat-raised-button >Abbrechen</button>
-    <button color="primary" type="submit" mat-raised-button >Speichern</button>
+    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
+    <button (click)="handleSave()" color="primary" type="submit" mat-raised-button >Speichern</button>
 </div>

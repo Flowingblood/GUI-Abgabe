@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Goal } from 'src/app/entities/goal';
 
 @Component({
   selector: 'app-goal-edit-dialog',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalEditDialogComponent implements OnInit {
 
-  constructor() { }
+  goal: Goal;
+
+  constructor(private currDialog: MatDialogRef<GoalEditDialogComponent>) {
+    currDialog.disableClose = true;
+  }
 
   ngOnInit(): void {
+
   }
+
+  handleSave(): void {
+
+  }
+
+  handleAbort(): void {
+    this.currDialog.close();
+  }
+
 
 }

@@ -4,11 +4,14 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-accordion class="example-headers-align" multi>
+
+  <mat-accordion class="example-headers-align">
+    <div *ngFor="let goal of goals">
+
     <mat-expansion-panel>
       <mat-expansion-panel-header style="align-items:center;">
         <mat-panel-title style="align-items: center;">
-          Ziel Name
+          Ziel Name {{goal.name}}
         </mat-panel-title>
         <mat-panel-description style="align-items: center;">
           
@@ -16,7 +19,7 @@
           <span style="margin-left: 1%;">{{40}}%</span>
           
         </mat-panel-description>
-        <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
+        <button (click)="openEditDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
             <mat-icon>edit</mat-icon>
           </button>
 
@@ -25,11 +28,13 @@
           </button>
       </mat-expansion-panel-header>
 
-      <mat-card style="align-items:center; display: flex">
+      <div *ngFor="let sub_goal of goal.subscope">
+        <mat-card style="align-items:center; display: flex">
 
-          <span >Unterziel Name</span>
+          <span >Unterziel Name: {{sub_goal.name}}</span>
           
-          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
+          
+          <button (click)="openEditDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
@@ -40,8 +45,9 @@
 
           <mat-checkbox color="primary" style="padding-left: 10px;"></mat-checkbox>
         
-        
       </mat-card>
+      </div>
+      
 
       <br>
 
@@ -51,7 +57,8 @@
       </button>
 
     </mat-expansion-panel>
-  </mat-accordion>
+  </div>
+</mat-accordion>
 
 <br>
 
