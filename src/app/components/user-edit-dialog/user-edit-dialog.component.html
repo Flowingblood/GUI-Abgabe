@@ -1,1 +1,31 @@
-<p>user-edit-dialog works!</p>
+<h2 style="text-align: center;" mat-dialog-title>Benutzer Bearbeitung</h2>
+
+
+    <form> <!-- TODO add formgroup -->
+
+        <mat-form-field style="width: 100%;">
+            <mat-label>Benutzername</mat-label>
+            <input matInput >
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Vorname</mat-label>
+            <input matInput >
+        </mat-form-field>
+        
+        <mat-form-field style="margin-left: 5px;">
+            <mat-label>Nachname</mat-label>
+            <input matInput >
+        </mat-form-field>
+        
+        <br>
+
+            <span class="spacer"></span>
+            <div mat-dialog-actions align="end">
+                <button type="button"  mat-raised-button >Passwort ändern</button>
+                <span style="flex: 1 1 auto"></span>
+                <button type="button" color="warn" mat-raised-button >Abbrechen</button>
+                <button color="primary" type="submit" mat-raised-button >Speichern</button>
+            </div>
+        
+    </form>

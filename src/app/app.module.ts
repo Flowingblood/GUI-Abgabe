@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit-dialog.component';
 import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit-dialog.component';
+import { PasswordEditDialogComponent } from './components/password-edit-dialog/password-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit
     UserOverviewComponent,
     GoalEditDialogComponent,
     UserEditDialogComponent,
+    PasswordEditDialogComponent,
   ],
   imports: [
     BrowserModule,
