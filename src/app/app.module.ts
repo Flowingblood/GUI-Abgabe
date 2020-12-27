@@ -15,6 +15,7 @@ import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit
 import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit-dialog.component';
 import { PasswordEditDialogComponent } from './components/password-edit-dialog/password-edit-dialog.component';
 import { GoalAddDialogComponent } from './components/goal-add-dialog/goal-add-dialog.component';
+import { GoalDeleteDialogComponent } from './components/goal-delete-dialog/goal-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GoalAddDialogComponent } from './components/goal-add-dialog/goal-add-di
     UserEditDialogComponent,
     PasswordEditDialogComponent,
     GoalAddDialogComponent,
+    GoalDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
