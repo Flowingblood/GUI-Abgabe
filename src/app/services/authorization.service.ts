@@ -23,17 +23,20 @@ export class AuthorizationService {
 
   public login(username: string, password: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.backendService.getAllUser().then((users: User[]) => {
-        const user = users.find((u: User) => u.username === username);
-        const foundUser = user != null;
+      this.backendService
+        .getAllUser()
+        .then((users: User[]) => {
+          const user = users.find((u: User) => u.username === username);
+          const foundUser = user != null;
 
-        if (foundUser) {
-          this.loginUser(user);
-          resolve();
-        } else {
-          reject();
-        }
-      });
+          if (foundUser) {
+            this.loginUser(user);
+            resolve();
+          } else {
+            reject();
+          }
+        })
+        .catch(() => console.error('Fehler bei der Abfrage aller User'));
     });
   }
 

@@ -2,6 +2,7 @@ import {  Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { AuthorizationService } from '../../services/authorization.service';
 
 @Component({
   selector: 'app-login',
@@ -31,9 +32,8 @@ export class LoginComponent implements OnInit {
    * Creates an instance of the UserEditComponent.
    *
    * @param _router Route to the next page.
-   * @param _authService AuthorizationService to check the credential data.
    */
-  constructor(private _router: Router) { }
+  constructor(private router: Router, private authorizationService: AuthorizationService) { }
 
   /**
    * Initialize the component.
@@ -46,7 +46,18 @@ export class LoginComponent implements OnInit {
    * Checks if the credentials are correct or not.
    */
   async submit(): Promise<void>{
-    
+    if (this.loginForm.valid) {
+      this.authorizationService.login(
+        this.loginForm.controls[this.username].value,
+        this.loginForm.controls[this.password].value
+      ).then(() => {
+        this.router.navigate(['/dashboard']);
+      }).catch(() => {
+        this.loginForm.controls[this.password].setErrors({
+          invalid: 'Credentials not correct',
+        });
+      });
+    }
   }
 
   /**
