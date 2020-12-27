@@ -17,6 +17,7 @@ import { GoalAddDialogComponent } from './components/goal-add-dialog/goal-add-di
 import { GoalDeleteDialogComponent } from './components/goal-delete-dialog/goal-delete-dialog.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UsersComponent } from './components/users/users.component';
     GoalDeleteDialogComponent,
     NavBarComponent,
     UsersComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
