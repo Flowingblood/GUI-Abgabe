@@ -13,7 +13,13 @@ export class AuthorizationService {
     private backendService: BackendService
   ) {}
 
-  private user: User = null;
+  private user: User = {
+    id: 0,
+    username: "Benutzer",
+    firstName: "Vorname",
+    lastName: "Nachname",
+    password: "Passwort",
+    scopeList: null};
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );

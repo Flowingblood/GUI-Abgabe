@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Goal } from 'src/app/entities/goal';
 
 @Component({
   selector: 'app-goal-delete-dialog',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoalDeleteDialogComponent implements OnInit {
 
-  constructor() { }
+  goal: Goal;
+
+  constructor(private currDialog: MatDialogRef<GoalDeleteDialogComponent>) { 
+    this.currDialog.disableClose = true;
+  }
 
   ngOnInit(): void {
+  }
+
+  handleSave(): void {
+    //TODO
+  }
+
+  handleAbort(): void {
+    this.currDialog.close();
   }
 
 }

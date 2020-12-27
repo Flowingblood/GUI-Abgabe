@@ -1,6 +1,6 @@
 <mat-toolbar class="stickyBar" color="primary">
     <mat-toolbar-row>
-      <span>Ziele von: </span>
+      <span>Ziele von: {{currentUser.firstName + " " +currentUser.lastName}}</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -11,7 +11,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header style="align-items:center;">
         <mat-panel-title style="align-items: center;">
-          Ziel Name {{goal.name}}
+          {{goal.name}}
         </mat-panel-title>
         <mat-panel-description style="align-items: center;">
           
@@ -23,7 +23,7 @@
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="justify-content: flex-end;"  aria-label="Delete">
+          <button (click)="openDeleteGoalDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;"  aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
       </mat-expansion-panel-header>
@@ -31,13 +31,13 @@
       <div *ngFor="let sub_goal of goal.subscope">
         <mat-card style="align-items:center; display: flex">
 
-          <span >Unterziel Name: {{sub_goal.name}}</span>
+          <span>{{sub_goal.name}}</span>
       
           <button (click)="openEditDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" aria-label="Delete">
+          <button (click)="openDeleteGoalDialog($event, sub_goal)" mat-icon-button color="primary" aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
 
