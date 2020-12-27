@@ -19,7 +19,7 @@
           <span style="margin-left: 1%;">{{40}}%</span>
           
         </mat-panel-description>
-        <button (click)="openEditDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
+        <button (click)="openEditGoalDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
             <mat-icon>edit</mat-icon>
           </button>
 
@@ -33,11 +33,11 @@
 
           <span>{{sub_goal.name}}</span>
       
-          <button (click)="openEditDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
+          <button (click)="openEditSubGoalDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="openDeleteGoalDialog($event, sub_goal)" mat-icon-button color="primary" aria-label="Delete">
+          <button (click)="openDeleteSubGoalDialog($event, sub_goal)" mat-icon-button color="primary" aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
 

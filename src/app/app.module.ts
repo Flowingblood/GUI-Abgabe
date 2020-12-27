@@ -8,7 +8,6 @@ import { MaterialModule } from './material-module';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { GoalsComponent } from './components/goals/goals.component';
-import { UserOverviewComponent } from './components/user-overview/user-overview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit-dialog.component';
@@ -25,7 +24,6 @@ import { UsersComponent } from './components/users/users.component';
     NavigationBarComponent,
     LoginComponent,
     GoalsComponent,
-    UserOverviewComponent,
     GoalEditDialogComponent,
     UserEditDialogComponent,
     PasswordEditDialogComponent,

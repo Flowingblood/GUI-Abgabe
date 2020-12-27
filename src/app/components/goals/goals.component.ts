@@ -8,6 +8,7 @@ import { GoalAddDialogComponent } from '../goal-add-dialog/goal-add-dialog.compo
 import { GoalDeleteDialogComponent } from '../goal-delete-dialog/goal-delete-dialog.component';
 import { User } from 'src/app/entities/user';
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import { SubGoal } from 'src/app/entities/sub-goal';
 
 @Component({
   selector: 'app-goals',
@@ -36,9 +37,11 @@ export class GoalsComponent implements OnInit {
     public authService: AuthorizationService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.getLoggedInUser().subscribe((currUser) => this.currentUser = currUser);
+  }
 
-  openEditDialog($event: any, goal: Goal): void {
+  openEditGoalDialog($event: any, goal: Goal): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
     this.editGoalDialogRef.componentInstance.goal = goal;
@@ -56,6 +59,34 @@ export class GoalsComponent implements OnInit {
   }
 
   openDeleteGoalDialog($event: any, goal: Goal): void {
+    $event.stopPropagation();
+    this.deleteGoalDialogRef = this.goalEditDialog.open(
+      GoalDeleteDialogComponent
+    );
+    this.deleteGoalDialogRef.componentInstance.goal = goal;
+    this.deleteGoalDialogRef.afterClosed().subscribe((result) => {
+      //TODO Update and database
+    });
+  }
+
+  openEditSubGoalDialog($event: any, goal: SubGoal): void {
+    $event.stopPropagation();
+    this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
+    this.editGoalDialogRef.componentInstance.goal = goal;
+    this.editGoalDialogRef.afterClosed().subscribe((result) => {
+      //TODO Update and database
+    });
+  }
+
+  openAddSubGoalDialog($event: any): void {
+    $event.stopPropagation();
+    this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
+    this.addGoalDialogRef.afterClosed().subscribe((result) => {
+      //TODO Update and database
+    });
+  }
+
+  openDeleteSubGoalDialog($event: any, goal: SubGoal): void {
     $event.stopPropagation();
     this.deleteGoalDialogRef = this.goalEditDialog.open(
       GoalDeleteDialogComponent

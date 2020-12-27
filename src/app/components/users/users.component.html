@@ -1,1 +1,35 @@
-<p>users works!</p>
+<mat-card>
+    <div class="example-container mat-elevation-z8">
+      <mat-table #table [dataSource]="users">
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> Titel </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+        </ng-container>
+
+        <!-- Semestrer_Number Column -->
+        <ng-container matColumnDef="semester_number">
+          <mat-header-cell *matHeaderCellDef> Semester Nummer </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.semester_number}} </mat-cell>
+        </ng-container>
+
+        <!-- PO_Number Column -->
+        <ng-container matColumnDef="poNr">
+          <mat-header-cell *matHeaderCellDef> PO Nummer </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.poNr}} </mat-cell>
+        </ng-container>
+
+        <!-- Edit-Button Column -->
+        <ng-container matColumnDef="editButton">
+          <mat-header-cell *matHeaderCellDef width ="5%"></mat-header-cell>
+          <mat-cell *matCellDef="let element" class="center-cell">
+
+          </mat-cell>
+        </ng-container>
+
+        <!--<mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>-->
+      </mat-table>
+    </div>
+  </mat-card>

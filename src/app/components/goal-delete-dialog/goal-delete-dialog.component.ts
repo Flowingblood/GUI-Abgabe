@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Goal } from 'src/app/entities/goal';
+import { SubGoal } from 'src/app/entities/sub-goal';
 
 @Component({
   selector: 'app-goal-delete-dialog',
@@ -9,7 +10,7 @@ import { Goal } from 'src/app/entities/goal';
 })
 export class GoalDeleteDialogComponent implements OnInit {
 
-  goal: Goal;
+  goal: Goal | SubGoal;
 
   constructor(private currDialog: MatDialogRef<GoalDeleteDialogComponent>) { 
     this.currDialog.disableClose = true;
