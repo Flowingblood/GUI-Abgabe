@@ -57,14 +57,13 @@ export class LoginComponent implements OnInit {
         )
         .then(() => {
           this.router.navigate(['/goals']);
-          this.pendingRequest = false;
         })
         .catch(() => {
           this.loginForm.controls[this.password].setErrors({
             invalid: 'Credentials not correct',
           });
-          this.pendingRequest = false;
-        });
+        })
+        .finally(() => (this.pendingRequest = false));
     }
   }
 
@@ -76,5 +75,5 @@ export class LoginComponent implements OnInit {
    */
   public hasError = (controlName: string, errorName: string): boolean => {
     return this.loginForm.controls[controlName].hasError(errorName);
-  };
+  }
 }
