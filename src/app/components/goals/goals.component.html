@@ -26,18 +26,18 @@
           </button>
       </mat-expansion-panel-header>
 
-      <mat-card style="text-align: center;">
-        <mat-card-actions align="end">
-          <span>Unterziel Name</span>
-          <div fxFlex></div>
-          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" aria-label="Edit">
+      <mat-card style="align-items:center; display: flex">
+
+          <span >Unterziel Name</span>
+          
+          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="$event.stopPropagation()" mat-icon-button color="primary"  aria-label="Delete">
+          <button (click)="$event.stopPropagation()" mat-icon-button color="primary"   aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
-        </mat-card-actions>
+        
       </mat-card>
 
       
