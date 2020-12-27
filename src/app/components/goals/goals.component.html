@@ -32,8 +32,7 @@
         <mat-card style="align-items:center; display: flex">
 
           <span >Unterziel Name: {{sub_goal.name}}</span>
-          
-          
+      
           <button (click)="openEditDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
@@ -42,16 +41,14 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-
           <mat-checkbox color="primary" style="padding-left: 10px;"></mat-checkbox>
         
-      </mat-card>
+        </mat-card>
       </div>
       
-
       <br>
 
-      <button style="display: block; margin: auto;" mat-stroked-button aria-label="Example icon-button with a heart icon">
+      <button (click)="openAddGoalDialog($event)" style="display: block; margin: auto;" mat-stroked-button aria-label="Example icon-button with a heart icon">
         Unterziel hinzufügen 
         <mat-icon>add</mat-icon>
       </button>
@@ -62,7 +59,7 @@
 
 <br>
 
-<button style="display: block; margin: auto;" mat-stroked-button aria-label="Example icon-button with a heart icon">
+<button (click)="openAddGoalDialog($event)" style="display: block; margin: auto;" mat-stroked-button aria-label="Add Goal">
   Oberziel hinzufügen 
   <mat-icon>add</mat-icon>
 </button>
