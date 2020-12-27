@@ -12,6 +12,7 @@ import { UserOverviewComponent } from './components/user-overview/user-overview.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit-dialog.component';
+import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit
     GoalsComponent,
     UserOverviewComponent,
     GoalEditDialogComponent,
+    UserEditDialogComponent,
   ],
   imports: [
     BrowserModule,
