@@ -18,7 +18,8 @@
         </p>
   
         <div class="button">
-          <button type="submit" mat-stroked-button class="my-button" >Login</button>
+          <button type="submit" mat-stroked-button class="my-button" [class.spinner]="pendingRequest"
+            [disabled]="pendingRequest">Login</button>
         </div>
   
       </form>

@@ -7,18 +7,18 @@ import { AuthorizationService } from '../../services/authorization.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 
 /**
  * Used to be the central login for the project.
  */
 export class LoginComponent implements OnInit {
-
   // Form Controlls
   private readonly username: string = 'username';
   private readonly password: string = 'password';
 
+  pendingRequest = false;
 
   /**
    * Creates a new FormGroup with all GUI components
@@ -33,30 +33,38 @@ export class LoginComponent implements OnInit {
    *
    * @param _router Route to the next page.
    */
-  constructor(private router: Router, private authorizationService: AuthorizationService) { }
+  constructor(
+    private router: Router,
+    private authorizationService: AuthorizationService
+  ) {}
 
   /**
    * Initialize the component.
    */
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   /**
    * Checking if everything is valid in the form.
    * Checks if the credentials are correct or not.
    */
-  async submit(): Promise<void>{
+  async submit(): Promise<void> {
     if (this.loginForm.valid) {
-      this.authorizationService.login(
-        this.loginForm.controls[this.username].value,
-        this.loginForm.controls[this.password].value
-      ).then(() => {
-        this.router.navigate(['/dashboard']);
-      }).catch(() => {
-        this.loginForm.controls[this.password].setErrors({
-          invalid: 'Credentials not correct',
+      this.pendingRequest = true;
+      this.authorizationService
+        .login(
+          this.loginForm.controls[this.username].value,
+          this.loginForm.controls[this.password].value
+        )
+        .then(() => {
+          this.router.navigate(['/goals']);
+          this.pendingRequest = false;
+        })
+        .catch(() => {
+          this.loginForm.controls[this.password].setErrors({
+            invalid: 'Credentials not correct',
+          });
+          this.pendingRequest = false;
         });
-      });
     }
   }
 
@@ -66,8 +74,7 @@ export class LoginComponent implements OnInit {
    * @param controlName Name of the FormControlComponent.
    * @returns Boolean value true when the FormField has an error, false when not.
    */
-  public hasError = (controlName: string, errorName: string): boolean =>{
+  public hasError = (controlName: string, errorName: string): boolean => {
     return this.loginForm.controls[controlName].hasError(errorName);
-  }
-
+  };
 }
