@@ -10,9 +10,16 @@ import { LoginComponent } from './components/login/login.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { UserOverviewComponent } from './components/user-overview/user-overview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, NavigationBarComponent, LoginComponent, GoalsComponent, UserOverviewComponent],
+  declarations: [
+    AppComponent,
+    NavigationBarComponent,
+    LoginComponent,
+    GoalsComponent,
+    UserOverviewComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
