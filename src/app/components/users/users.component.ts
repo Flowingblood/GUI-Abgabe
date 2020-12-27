@@ -23,4 +23,13 @@ export class UsersComponent implements OnInit {
     
   }
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.users.filter = filterValue.trim().toLowerCase();
+
+    if (this.users.paginator) {
+      this.users.paginator.firstPage();
+    }
+  }
+
 }
