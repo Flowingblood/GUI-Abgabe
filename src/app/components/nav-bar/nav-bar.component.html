@@ -1,11 +1,11 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="this.currentUser !== null">
     <mat-toolbar-row>
-        <button mat-raised-button  routerLink="./goals">Ziele</button>
-        <button mat-raised-button style="margin-left: 1%;" routerLink="./users">Nutzerübersicht</button>
+        <button mat-raised-button routerLink="./goals">Ziele</button>
+        <button *ngIf="currentUser.permission" mat-raised-button style="margin-left: 1%;" routerLink="./users">Nutzerübersicht</button>
 
         <span style="flex: 1 1 auto;"></span>
-    <button color="warn" mat-flat-button>
-      User Name 
+    <button (click)="handleLogOut()" routerLink="./login" color="warn" mat-flat-button>
+      {{currentUser.username}}
       <mat-icon>exit_to_app</mat-icon>
     </button>
     </mat-toolbar-row>

@@ -19,7 +19,8 @@ export class AuthorizationService {
     firstName: "Vorname",
     lastName: "Nachname",
     password: "Passwort",
-    scopeList: null};
+    scopeList: null,
+    permission: true};
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
