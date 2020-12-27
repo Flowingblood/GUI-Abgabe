@@ -2,5 +2,58 @@
     <mat-toolbar-row>
       <span>Ziele von: </span>
     </mat-toolbar-row>
-  
 </mat-toolbar>
+
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header style="align-items:center;">
+        <mat-panel-title style="align-items: center;">
+          Ziel Name
+        </mat-panel-title>
+        <mat-panel-description style="align-items: center;">
+          Ziel Beschreibung  
+          
+          <mat-progress-bar class="centeredProgressBar" mode="determinate" value="40"></mat-progress-bar>
+          <span style="margin-left: 1%;">{{40}}%</span>
+          
+        </mat-panel-description>
+        <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" style="justify-content: flex-end;"  aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+      </mat-expansion-panel-header>
+
+      <mat-card style="text-align: center;">
+        <mat-card-actions align="end">
+          <span>Unterziel Name</span>
+          <div fxFlex></div>
+          <button (click)="$event.stopPropagation()" mat-icon-button color="primary" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button (click)="$event.stopPropagation()" mat-icon-button color="primary"  aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      
+      <br>
+
+      <button style="display: block; margin: auto;" mat-stroked-button aria-label="Example icon-button with a heart icon">
+        Unterziel hinzufügen 
+        <mat-icon>add</mat-icon>
+      </button>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+<br>
+
+<button style="display: block; margin: auto;" mat-stroked-button aria-label="Example icon-button with a heart icon">
+  Oberziel hinzufügen 
+  <mat-icon>add</mat-icon>
+</button>
