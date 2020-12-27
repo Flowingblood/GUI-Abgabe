@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit-dialog.component';
 import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit-dialog.component';
 import { PasswordEditDialogComponent } from './components/password-edit-dialog/password-edit-dialog.component';
+import { GoalAddDialogComponent } from './components/goal-add-dialog/goal-add-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PasswordEditDialogComponent } from './components/password-edit-dialog/p
     GoalEditDialogComponent,
     UserEditDialogComponent,
     PasswordEditDialogComponent,
+    GoalAddDialogComponent,
   ],
   imports: [
     BrowserModule,
