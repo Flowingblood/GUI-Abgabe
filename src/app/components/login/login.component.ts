@@ -46,15 +46,7 @@ export class LoginComponent implements OnInit {
   /**
    * Initialize the component.
    */
-  ngOnInit(): void {
-    this.backendService.getAllUser().then((user) => {
-      console.log(user);
-
-      let a = this.goalService.createGoal(user[0], "TEst");
-      //console.log(a);
-      console.log(user);
-    });
-  }
+  ngOnInit(): void {}
 
   /**
    * Checking if everything is valid in the form.
@@ -88,5 +80,5 @@ export class LoginComponent implements OnInit {
    */
   public hasError = (controlName: string, errorName: string): boolean => {
     return this.loginForm.controls[controlName].hasError(errorName);
-  };;
+  };
 }
