@@ -3,6 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 import { AuthorizationService } from '../../services/authorization.service';
+import { BackendService } from '../../services/backend.service';
+import { Goal } from '../../entities/goal';
+import { GoalServiceService } from '../../services/goal-service.service';
 
 @Component({
   selector: 'app-login',
@@ -35,13 +38,23 @@ export class LoginComponent implements OnInit {
    */
   constructor(
     private router: Router,
-    private authorizationService: AuthorizationService
+    private authorizationService: AuthorizationService,
+    private backendService: BackendService,
+    private goalService: GoalServiceService
   ) {}
 
   /**
    * Initialize the component.
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.backendService.getAllUser().then((user) => {
+      console.log(user);
+
+      let a = this.goalService.createGoal(user[0], "TEst");
+      //console.log(a);
+      console.log(user);
+    });
+  }
 
   /**
    * Checking if everything is valid in the form.
@@ -75,5 +88,5 @@ export class LoginComponent implements OnInit {
    */
   public hasError = (controlName: string, errorName: string): boolean => {
     return this.loginForm.controls[controlName].hasError(errorName);
-  }
+  };;
 }

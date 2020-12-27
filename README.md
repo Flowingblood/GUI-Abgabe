@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# ID Convention
+1|000|000|000
+Teil 0: Id Version, ist konstant
+Teil 1: User Id
+Teil 2: Goal Id
+Teil3: SubGoal Id
