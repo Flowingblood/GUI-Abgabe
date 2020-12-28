@@ -55,6 +55,12 @@ export class UsersComponent implements OnInit {
     this.users.filter = '';
   }
 
+  private removeUserFromTable(user: User): void {
+    this.users.data = this.users.data.filter((u) => u.id !== user.id);
+    console.log(this.users.data);
+    this.users.filter = '';
+  }
+
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.users.filter = filterValue.trim().toLowerCase();
@@ -82,8 +88,7 @@ export class UsersComponent implements OnInit {
     this.editUserDialogRef.componentInstance.user = user;
     this.editUserDialogRef.afterClosed().subscribe((result) => {
       if (result != null) {
-        this.userService
-          .modifyUser(result);
+        this.userService.modifyUser(result);
       }
     });
   }
@@ -95,7 +100,10 @@ export class UsersComponent implements OnInit {
     );
     this.deleteUserDialogRef.componentInstance.user = user;
     this.deleteUserDialogRef.afterClosed().subscribe((result) => {
-      // TODO Update and database
+      if (result != null) {
+        this.userService.delete(user);
+        this.removeUserFromTable(user);
+      }
     });
   }
 }

@@ -11,7 +11,7 @@ export class UserDeleteDialogComponent implements OnInit {
 
   user: User;
 
-  constructor(private currDialog: MatDialogRef<UserDeleteDialogComponent>) { 
+  constructor(private currDialog: MatDialogRef<UserDeleteDialogComponent>) {
     this.currDialog.disableClose = true;
   }
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class UserDeleteDialogComponent implements OnInit {
 
 
   handleDelete(): void {
-    // TODO
+    this.currDialog.close(this.user);
   }
 
   handleAbort(): void {
