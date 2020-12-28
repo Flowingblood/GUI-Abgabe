@@ -16,6 +16,10 @@ export class UserService {
     return this.backendService.getAllUser();
   }
 
+  public getUserByUserid(userid: number): Promise<User> {
+    return this.backendService.getUserByUserid(userid);
+  }
+
   public async createUser(user: User): Promise<User> {
     user.scopeList = [];
     user.id = this.idService.getNewUserId(await this.getAllUser());

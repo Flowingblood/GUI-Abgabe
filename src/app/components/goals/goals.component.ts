@@ -11,6 +11,8 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 import { SubGoal } from 'src/app/entities/sub-goal';
 import { GoalServiceService } from '../../services/goal-service.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-goals',
@@ -36,17 +38,20 @@ export class GoalsComponent implements OnInit {
     public addGoalDialog: MatDialog,
     public deleteGoalDialog: MatDialog,
     public goalService: GoalServiceService,
-    public authService: AuthorizationService
+    public userService: UserService,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    this.authService.getLoggedInUser().subscribe((currUser) => {
-      this.currentUser = currUser;
-      if (currUser !== null) {
-        this.goals = this.goalService.getGoalFromUser(this.currentUser);
-      } else {
-        this.goals = [];
-      }
+    this.route.paramMap.subscribe( paramMap => {
+      this.userService.getUserByUserid(+paramMap.get('id')).then((user) => {
+        this.currentUser = user;
+        if (user !== null) {
+          this.goals = this.goalService.getGoalFromUser(this.currentUser);
+        } else {
+          this.goals = [];
+        }
+      });
     });
   }
 

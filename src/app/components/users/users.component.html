@@ -48,7 +48,7 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell  *matHeaderCellDef width ="5%"></mat-header-cell>
             <mat-cell *matCellDef="let element" class="center-cell">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button color="primary" (click)=" openUserGoals($event, element)">
                     <mat-icon>outlined_flag</mat-icon>
                 </button>
                 <button (click)="openEditUserDialog($event, element)" mat-icon-button color="primary">

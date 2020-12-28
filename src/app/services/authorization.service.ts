@@ -31,8 +31,8 @@ export class AuthorizationService {
     this.user
   );
 
-  public login(username: string, password: string): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
+  public login(username: string, password: string): Promise<User> {
+    return new Promise<User>((resolve, reject) => {
       this.backendService
         .getAllUser()
         .then((users: User[]) => {
@@ -43,7 +43,7 @@ export class AuthorizationService {
 
           if (foundUser) {
             this.loginUser(user);
-            resolve();
+            resolve(user);
           } else {
             reject();
           }
@@ -75,5 +75,9 @@ export class AuthorizationService {
 
   public getLoggedInUser(): Observable<User> {
     return this.loggedInUser.asObservable();
+  }
+
+  public getCurrentLoggedInUser(): User {
+    return this.loggedInUser.getValue();
   }
 }

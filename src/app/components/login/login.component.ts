@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
           this.loginForm.controls[this.username].value,
           this.loginForm.controls[this.password].value
         )
-        .then(() => {
-          this.router.navigate(['/goals']);
+        .then((user) => {
+          this.router.navigate(['/goals', user.id]);
         })
         .catch(() => {
           this.loginForm.controls[this.password].setErrors({

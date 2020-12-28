@@ -1,14 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { User } from 'src/app/entities/user';
 import { BackendService } from 'src/app/services/backend.service';
-import { GoalAddDialogComponent } from '../goal-add-dialog/goal-add-dialog.component';
 import { UserAddDialogComponent } from '../user-add-dialog/user-add-dialog.component';
 import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dialog.component';
 import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
 import { UserService } from '../../services/user.service';
-import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -40,7 +39,8 @@ export class UsersComponent implements OnInit {
     public userAddDialog: MatDialog,
     public userEditDialog: MatDialog,
     public userDeleteDialog: MatDialog,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -105,5 +105,10 @@ export class UsersComponent implements OnInit {
         this.removeUserFromTable(user);
       }
     });
+  }
+
+  openUserGoals($event: any, user: User): void {
+    $event.stopPropagation();
+    this.router.navigate(['/goals', user.id]);
   }
 }

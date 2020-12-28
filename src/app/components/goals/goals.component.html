@@ -1,6 +1,6 @@
 <mat-toolbar class="stickyBar" color="primary">
     <mat-toolbar-row>
-      <span>Ziele von: {{currentUser.firstName + " " +currentUser.lastName}}</span>
+      <span>Ziele von: {{currentUser ? currentUser.firstName + " " +currentUser.lastName : 'Lädt'}}</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
