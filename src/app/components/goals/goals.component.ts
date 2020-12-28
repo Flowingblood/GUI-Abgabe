@@ -97,7 +97,6 @@ export class GoalsComponent implements OnInit {
   }
 
   openAddSubGoalDialog($event: any, goal: Goal, user: User): void {
-    console.log('a:', user);
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
     this.addGoalDialogRef.afterClosed().subscribe((result) => {

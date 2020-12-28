@@ -43,7 +43,6 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.backendService.getAllUser().then((u) => {
       this.users = new MatTableDataSource(u);
-      console.log(this.users.data);
     });
   }
 
