@@ -11,10 +11,9 @@ import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.co
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss']
+  styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-
   // Add Popupdialog
   addUserDialogRef: MatDialogRef<UserAddDialogComponent>;
 
@@ -24,17 +23,28 @@ export class UsersComponent implements OnInit {
   // Delete Popupdialog
   deleteUserDialogRef: MatDialogRef<UserDeleteDialogComponent>;
 
-  displayedColumns: string[] = ['id','username', 'firstname', 'lastname', 'actions'];
+  displayedColumns: string[] = [
+    'id',
+    'username',
+    'firstname',
+    'lastname',
+    'actions',
+  ];
 
-  users : MatTableDataSource<User>;
+  users: MatTableDataSource<User>;
 
-  constructor(public backendService: BackendService, public userAddDialog: MatDialog, public userEditDialog: MatDialog, public userDeleteDialog: MatDialog) { }
+  constructor(
+    public backendService: BackendService,
+    public userAddDialog: MatDialog,
+    public userEditDialog: MatDialog,
+    public userDeleteDialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-
-    
-    this.backendService.getAllUser().then((u) => {this.users = new MatTableDataSource(u); console.log(this.users.data);})
-    
+    this.backendService.getAllUser().then((u) => {
+      this.users = new MatTableDataSource(u);
+      console.log(this.users.data);
+    });
   }
 
   applyFilter(event: Event): void {
@@ -50,7 +60,7 @@ export class UsersComponent implements OnInit {
     $event.stopPropagation();
     this.addUserDialogRef = this.userAddDialog.open(UserAddDialogComponent);
     this.addUserDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      // TODO Update and database
     });
   }
 
@@ -59,17 +69,18 @@ export class UsersComponent implements OnInit {
     this.editUserDialogRef = this.userEditDialog.open(UserEditDialogComponent);
     this.editUserDialogRef.componentInstance.user = user;
     this.editUserDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      // TODO Update and database
     });
   }
 
   openDeleteUserDialog($event: any, user: User): void {
     $event.stopPropagation();
-    this.deleteUserDialogRef = this.userDeleteDialog.open(UserDeleteDialogComponent);
+    this.deleteUserDialogRef = this.userDeleteDialog.open(
+      UserDeleteDialogComponent
+    );
     this.deleteUserDialogRef.componentInstance.user = user;
     this.deleteUserDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      // TODO Update and database
     });
   }
-
 }

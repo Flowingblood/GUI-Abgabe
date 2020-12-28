@@ -17,7 +17,7 @@ export class UserEditDialogComponent implements OnInit {
   }
 
   handleSave(): void {
-    //TODO
+    // TODO
   }
 
   handleAbort(): void {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoalEditDialogComponent } from '../goal-edit-dialog/goal-edit-dialog.component';
-import {MatDialog, MatDialogRef,} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
 import { Goal } from 'src/app/entities/goal';
 import { BackendService } from 'src/app/services/backend.service';
@@ -50,7 +50,7 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  //TODO User ebenfalls als Argument
+  // TODO User ebenfalls als Argument
   openEditGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
@@ -127,7 +127,11 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  public toggleValue($event: MatCheckboxChange, subGoal: SubGoal, user: User): void {
+  public toggleValue(
+    $event: MatCheckboxChange,
+    subGoal: SubGoal,
+    user: User
+  ): void {
     subGoal.checked = $event.checked;
     this.goalService.modifySubGoal(subGoal, user);
   }

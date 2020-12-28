@@ -14,7 +14,7 @@ export class AuthorizationService {
     private backendService: BackendService,
     private router: Router
   ) {}
-  //TODO
+  // TODO
   private user: User = {
     id: 0,
     username: 'Benutzer',
