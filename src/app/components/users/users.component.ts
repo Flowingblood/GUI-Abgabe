@@ -7,6 +7,8 @@ import { GoalAddDialogComponent } from '../goal-add-dialog/goal-add-dialog.compo
 import { UserAddDialogComponent } from '../user-add-dialog/user-add-dialog.component';
 import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dialog.component';
 import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
+import { UserService } from '../../services/user.service';
+import { TOUCH_BUFFER_MS } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-users',
@@ -37,13 +39,20 @@ export class UsersComponent implements OnInit {
     public backendService: BackendService,
     public userAddDialog: MatDialog,
     public userEditDialog: MatDialog,
-    public userDeleteDialog: MatDialog
+    public userDeleteDialog: MatDialog,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.backendService.getAllUser().then((u) => {
       this.users = new MatTableDataSource(u);
     });
+  }
+
+  private addUserToTable(user: User): void {
+    this.users.data.push(user);
+    console.log(this.users.data);
+    this.users.filter = '';
   }
 
   applyFilter(event: Event): void {
@@ -59,7 +68,11 @@ export class UsersComponent implements OnInit {
     $event.stopPropagation();
     this.addUserDialogRef = this.userAddDialog.open(UserAddDialogComponent);
     this.addUserDialogRef.afterClosed().subscribe((result) => {
-      // TODO Update and database
+      if (result != null) {
+        this.userService
+          .createUser(result)
+          .then(() => this.addUserToTable(result));
+      }
     });
   }
 

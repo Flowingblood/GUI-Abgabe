@@ -23,7 +23,7 @@ export class UserDeleteDialogComponent implements OnInit {
   }
 
   handleAbort(): void {
-    this.currDialog.close();
+    this.currDialog.close(null);
   }
 
 }
