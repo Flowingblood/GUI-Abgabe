@@ -14,16 +14,8 @@ export class AuthorizationService {
     private backendService: BackendService,
     private router: Router
   ) {}
-  // TODO
-  private user: User = {
-    id: 0,
-    username: 'Benutzer',
-    firstName: 'Vorname',
-    lastName: 'Nachname',
-    password: 'Passwort',
-    scopeList: null,
-    permission: true,
-  };
+
+  private user: User = null;
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
