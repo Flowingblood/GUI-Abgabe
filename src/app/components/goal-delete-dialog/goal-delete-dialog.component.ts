@@ -19,7 +19,7 @@ export class GoalDeleteDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleSave(): void {
+  handleDelete(): void {
     //TODO
   }
 

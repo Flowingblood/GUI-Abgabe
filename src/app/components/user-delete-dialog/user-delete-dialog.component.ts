@@ -18,7 +18,7 @@ export class UserDeleteDialogComponent implements OnInit {
   }
 
 
-  handleSave(): void {
+  handleDelete(): void {
     //TODO
   }
 

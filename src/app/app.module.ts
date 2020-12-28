@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
-import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { GoalsComponent } from './components/goals/goals.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +22,6 @@ import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent,
     LoginComponent,
     GoalsComponent,
     GoalEditDialogComponent,

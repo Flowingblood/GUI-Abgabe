@@ -56,7 +56,7 @@ export class UsersComponent implements OnInit {
 
   openEditUserDialog($event: any, user: User): void {
     $event.stopPropagation();
-    this.editUserDialogRef = this.userAddDialog.open(UserEditDialogComponent);
+    this.editUserDialogRef = this.userEditDialog.open(UserEditDialogComponent);
     this.editUserDialogRef.componentInstance.user = user;
     this.editUserDialogRef.afterClosed().subscribe((result) => {
       //TODO Update and database
@@ -65,7 +65,7 @@ export class UsersComponent implements OnInit {
 
   openDeleteUserDialog($event: any, user: User): void {
     $event.stopPropagation();
-    this.deleteUserDialogRef = this.userAddDialog.open(UserDeleteDialogComponent);
+    this.deleteUserDialogRef = this.userDeleteDialog.open(UserDeleteDialogComponent);
     this.deleteUserDialogRef.componentInstance.user = user;
     this.deleteUserDialogRef.afterClosed().subscribe((result) => {
       //TODO Update and database
