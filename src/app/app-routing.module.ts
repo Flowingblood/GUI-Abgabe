@@ -4,6 +4,8 @@ import { GoalsComponent } from './components/goals/goals.component';
 import { LoginComponent } from './components/login/login.component';
 import { UsersComponent } from './components/users/users.component';
 import { LoginGuard } from './guards/login.guard';
+import { GoalsGuard } from './guards/goals.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -15,6 +17,7 @@ const routes: Routes = [
   {
     path: 'goals/:id',
     component: GoalsComponent,
+    canActivate: [GoalsGuard],
     data: { title: 'Ziele Übersicht' },
   },
   {
@@ -25,6 +28,7 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [AdminGuard],
     data: { title: 'Benutzer Übersicht' },
   },
 

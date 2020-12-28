@@ -6,26 +6,26 @@ import {
   UrlTree,
   Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthorizationService } from '../services/authorization.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class LoginGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(
     private router: Router,
-    private authorizationService: AuthorizationService
+    private authService: AuthorizationService
   ) {}
 
   canActivate(): boolean {
-    if (this.authorizationService.isLoggedIn()) {
-      this.router.navigate([
-        '/goals',
-        this.authorizationService.getCurrentLoggedInUser().id,
-      ]);
-      return false;
+    if (
+      this.authService.isLoggedIn() &&
+      this.authService.getCurrentLoggedInUser().permission
+    ) {
+      return true;
     }
-    return true;
+
+    this.router.navigate(['/']);
+    return false;
   }
 }
