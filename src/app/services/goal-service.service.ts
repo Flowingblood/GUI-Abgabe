@@ -18,6 +18,19 @@ export class GoalServiceService {
     return user.scopeList == null ? [] : user.scopeList;
   }
 
+  public getPercentNumberFromGoal(goal: Goal): number {
+    const numberOfSubGoals = goal.subscope.length;
+    const numberOfCompletedSubGoals = goal.subscope.filter(
+      (item) => item.checked
+    ).length;
+
+    if (numberOfSubGoals === 0) {
+      return 0;
+    } else {
+      return (numberOfCompletedSubGoals / numberOfSubGoals) * 100;
+    }
+  }
+
   public createGoal(user: User, name: string): Goal {
     const newGoal: Goal = {
       id: this.idService.getNewGoalId(user.scopeList, user),

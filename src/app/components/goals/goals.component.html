@@ -15,8 +15,9 @@
         </mat-panel-title>
         <mat-panel-description style="align-items: center;">
           
-          <mat-progress-bar class="centeredProgressBar" mode="determinate" value="40"></mat-progress-bar>
-          <span style="margin-left: 1%;">{{40}}%</span>
+          <mat-progress-bar class="centeredProgressBar" mode="determinate" [value]="goalService.getPercentNumberFromGoal(goal)">
+          </mat-progress-bar>
+          <span style="margin-left: 1%;">{{goalService.getPercentNumberFromGoal(goal) | number : '1.0-0'}}%</span>
           
         </mat-panel-description>
         <button (click)="openEditGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
@@ -45,7 +46,8 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-          <mat-checkbox color="primary" style="padding-left: 10px;" (change)="toggleValue($event, sub_goal, currentUser)">
+          <mat-checkbox color="primary" style="padding-left: 10px;" [(ngModel)]="sub_goal.checked"
+            (change)="toggleValue($event, sub_goal, currentUser)">
           </mat-checkbox>
         
         </mat-card>

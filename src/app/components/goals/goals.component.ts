@@ -35,7 +35,7 @@ export class GoalsComponent implements OnInit {
     public goalEditDialog: MatDialog,
     public addGoalDialog: MatDialog,
     public deleteGoalDialog: MatDialog,
-    private goalService: GoalServiceService,
+    public goalService: GoalServiceService,
     public authService: AuthorizationService
   ) {}
 
