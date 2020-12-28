@@ -10,6 +10,7 @@ import { User } from 'src/app/entities/user';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { SubGoal } from 'src/app/entities/sub-goal';
 import { GoalServiceService } from '../../services/goal-service.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-goals',
@@ -97,7 +98,7 @@ export class GoalsComponent implements OnInit {
   }
 
   openAddSubGoalDialog($event: any, goal: Goal, user: User): void {
-    console.log("a:", user);
+    console.log('a:', user);
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
     this.addGoalDialogRef.afterClosed().subscribe((result) => {
@@ -107,8 +108,12 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  openDeleteSubGoalDialog($event: any, subGoal: SubGoal, goal: Goal, 
-    user: User): void {
+  openDeleteSubGoalDialog(
+    $event: any,
+    subGoal: SubGoal,
+    goal: Goal,
+    user: User
+  ): void {
     $event.stopPropagation();
     this.deleteGoalDialogRef = this.goalEditDialog.open(
       GoalDeleteDialogComponent
@@ -120,5 +125,10 @@ export class GoalsComponent implements OnInit {
         this.goals = this.goalService.getGoalFromUser(this.currentUser);
       }
     });
+  }
+
+  public toggleValue($event: MatCheckboxChange, subGoal: SubGoal, user: User): void {
+    subGoal.checked = $event.checked;
+    this.goalService.modifySubGoal(subGoal, user);
   }
 }

@@ -45,7 +45,8 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-          <mat-checkbox color="primary" style="padding-left: 10px;"></mat-checkbox>
+          <mat-checkbox color="primary" style="padding-left: 10px;" (change)="toggleValue($event, sub_goal, currentUser)">
+          </mat-checkbox>
         
         </mat-card>
       </div>
