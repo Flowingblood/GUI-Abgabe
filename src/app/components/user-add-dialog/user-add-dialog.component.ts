@@ -19,9 +19,12 @@ export class UserAddDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   handleSave(): void {
-    // TODO Check not working
-    if (this.username !== '' && this.firstName !== ''
-    && this.lastName !== '' && this.password !== '') {
+    if (
+      this.username.length !== 0 &&
+      this.firstName.length !== 0 &&
+      this.lastName.length !== 0 &&
+      this.password.length !== 0
+    ) {
       const user: User = {
         id: 0,
         username: this.username,
@@ -29,7 +32,7 @@ export class UserAddDialogComponent implements OnInit {
         lastName: this.lastName,
         password: this.password,
         permission: this.admin,
-        scopeList: []
+        scopeList: [],
       };
 
       this.currDialog.close(user);
