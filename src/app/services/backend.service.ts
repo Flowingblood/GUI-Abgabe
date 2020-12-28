@@ -88,7 +88,7 @@ export class BackendService {
 
   public deleteUserByUserid(userid: number): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      this.http.get<void>(this.baseURL + 'user/' + userid).subscribe(
+      this.http.delete<void>(this.baseURL + 'user/' + userid).subscribe(
         (data) => {
           resolve(data);
         },
