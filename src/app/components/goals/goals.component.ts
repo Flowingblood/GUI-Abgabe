@@ -50,7 +50,6 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  // TODO User ebenfalls als Argument
   openEditGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
