@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BackendService } from './backend.service';
 import { User } from '../entities/user';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -10,17 +11,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthorizationService {
   constructor(
     private http: HttpClient,
-    private backendService: BackendService
+    private backendService: BackendService,
+    private router: Router
   ) {}
   //TODO
   private user: User = {
     id: 0,
-    username: "Benutzer",
-    firstName: "Vorname",
-    lastName: "Nachname",
-    password: "Passwort",
+    username: 'Benutzer',
+    firstName: 'Vorname',
+    lastName: 'Nachname',
+    password: 'Passwort',
     scopeList: null,
-    permission: true};
+    permission: true,
+  };
   private isAuthenticated: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
@@ -33,7 +36,9 @@ export class AuthorizationService {
       this.backendService
         .getAllUser()
         .then((users: User[]) => {
-          const user = users.find((u: User) => u.username === username);
+          const user = users.find(
+            (u: User) => u.username === username && u.password === password
+          );
           const foundUser = user != null;
 
           if (foundUser) {
@@ -57,6 +62,7 @@ export class AuthorizationService {
     this.isAuthenticated.next(false);
     this.loggedInUser.next(null);
     this.user = null;
+    this.router.navigate(['/login']);
   }
 
   public isLoggedIn(): boolean {

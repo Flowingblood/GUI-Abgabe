@@ -5,21 +5,20 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-
   currentUser: User;
 
-  constructor(authService: AuthorizationService) {
-    authService.getLoggedInUser().subscribe((currUser) => this.currentUser = currUser);
+  constructor(private authService: AuthorizationService) {
+    authService
+      .getLoggedInUser()
+      .subscribe((currUser) => (this.currentUser = currUser));
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  handleLogOut(): void{
-    //TODO Handle Logout
+  handleLogOut(): void {
+    this.authService.logout();
   }
-
 }
