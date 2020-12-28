@@ -1,31 +1,35 @@
-<h2 style="text-align: center;" mat-dialog-title>Benutzer Bearbeitung</h2>
+<h2 style="text-align: center;" mat-dialog-title>Benutzer Bearbeiten</h2>
 
+<mat-form-field >
+    <mat-label>Vorname</mat-label>
+    <input matInput value="{{user.firstName}}">
+</mat-form-field>
 
-    <form> <!-- TODO add formgroup -->
+<mat-form-field style="padding-left: 5px;">
+    <mat-label>Nachname</mat-label>
+    <input matInput value="{{user.lastName}}">
+</mat-form-field>
 
-        <mat-form-field style="width: 100%;">
-            <mat-label>Benutzername</mat-label>
-            <input matInput >
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <mat-label>Vorname</mat-label>
-            <input matInput >
-        </mat-form-field>
-        
-        <mat-form-field style="margin-left: 5px;">
-            <mat-label>Nachname</mat-label>
-            <input matInput >
-        </mat-form-field>
-        
-        <br>
+<br>
 
-            <span class="spacer"></span>
-            <div mat-dialog-actions align="end">
-                <button type="button"  mat-raised-button >Passwort ändern</button>
-                <span style="flex: 1 1 auto"></span>
-                <button type="button" color="warn" mat-raised-button >Abbrechen</button>
-                <button color="primary" type="submit" mat-raised-button >Speichern</button>
-            </div>
-        
-    </form>
+<mat-form-field >
+    <mat-label>Username</mat-label>
+    <input matInput value="{{user.username}}">
+</mat-form-field>
+
+<mat-form-field  style="padding-left: 5px;">
+    <mat-label>Passwort</mat-label>
+    <input type="password" matInput value="{{user.password}}">
+</mat-form-field>
+
+<br>
+
+<mat-slide-toggle [(ngModel)]="user.permission">
+    Ist Admin
+</mat-slide-toggle>
+
+<div mat-dialog-actions align="end">
+    
+    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
+    <button (click)="handleSave()" color="primary" type="submit" mat-raised-button >Speichern</button>
+</div>
