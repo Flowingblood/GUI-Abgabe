@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { User } from 'src/app/entities/user';
 
 @Component({
   selector: 'app-user-delete-dialog',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDeleteDialogComponent implements OnInit {
 
-  constructor() { }
+  user: User;
 
+  constructor(private currDialog: MatDialogRef<UserDeleteDialogComponent>) { 
+    this.currDialog.disableClose = true;
+  }
   ngOnInit(): void {
+  }
+
+
+  handleSave(): void {
+    //TODO
+  }
+
+  handleAbort(): void {
+    this.currDialog.close();
   }
 
 }

@@ -5,6 +5,7 @@ import { User } from 'src/app/entities/user';
 import { BackendService } from 'src/app/services/backend.service';
 import { GoalAddDialogComponent } from '../goal-add-dialog/goal-add-dialog.component';
 import { UserAddDialogComponent } from '../user-add-dialog/user-add-dialog.component';
+import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dialog.component';
 import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
 
 @Component({
@@ -20,11 +21,14 @@ export class UsersComponent implements OnInit {
   // Edit Popupdialog
   editUserDialogRef: MatDialogRef<UserEditDialogComponent>;
 
+  // Delete Popupdialog
+  deleteUserDialogRef: MatDialogRef<UserDeleteDialogComponent>;
+
   displayedColumns: string[] = ['id','username', 'firstname', 'lastname', 'actions'];
 
   users : MatTableDataSource<User>;
 
-  constructor(public backendService: BackendService, public userAddDialog: MatDialog, public userEditDialog: MatDialog) { }
+  constructor(public backendService: BackendService, public userAddDialog: MatDialog, public userEditDialog: MatDialog, public userDeleteDialog: MatDialog) { }
 
   ngOnInit(): void {
 
@@ -55,6 +59,15 @@ export class UsersComponent implements OnInit {
     this.editUserDialogRef = this.userAddDialog.open(UserEditDialogComponent);
     this.editUserDialogRef.componentInstance.user = user;
     this.editUserDialogRef.afterClosed().subscribe((result) => {
+      //TODO Update and database
+    });
+  }
+
+  openDeleteUserDialog($event: any, user: User): void {
+    $event.stopPropagation();
+    this.deleteUserDialogRef = this.userAddDialog.open(UserDeleteDialogComponent);
+    this.deleteUserDialogRef.componentInstance.user = user;
+    this.deleteUserDialogRef.afterClosed().subscribe((result) => {
       //TODO Update and database
     });
   }
