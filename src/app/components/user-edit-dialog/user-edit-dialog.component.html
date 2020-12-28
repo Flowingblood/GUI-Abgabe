@@ -2,29 +2,30 @@
 
 <mat-form-field >
     <mat-label>Vorname</mat-label>
-    <input matInput value="{{user.firstName}}">
+    <input matInput [(ngModel)]="firstName">
 </mat-form-field>
 
 <mat-form-field style="padding-left: 5px;">
-    <mat-label>Nachname</mat-label>
-    <input matInput value="{{user.lastName}}">
+    <mat-label >Nachname</mat-label>
+    <input matInput [(ngModel)]="lastName">
 </mat-form-field>
 
 <br>
 
 <mat-form-field >
     <mat-label>Username</mat-label>
-    <input matInput value="{{user.username}}">
+    <input matInput [(ngModel)]="username">
 </mat-form-field>
 
 <mat-form-field  style="padding-left: 5px;">
     <mat-label>Passwort</mat-label>
-    <input type="password" matInput value="{{user.password}}">
+    <input type="password" matInput [(ngModel)]="password">
+    <mat-hint>Leer lassen wenn das Passwor unverändert bleiben soll!</mat-hint>
 </mat-form-field>
 
 <br>
-<!-- todo fix-->
-<mat-slide-toggle [(ngModel)]="user.permission">
+
+<mat-slide-toggle [(ngModel)]="admin">
     Ist Admin
 </mat-slide-toggle>
 

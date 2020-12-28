@@ -81,7 +81,10 @@ export class UsersComponent implements OnInit {
     this.editUserDialogRef = this.userEditDialog.open(UserEditDialogComponent);
     this.editUserDialogRef.componentInstance.user = user;
     this.editUserDialogRef.afterClosed().subscribe((result) => {
-      // TODO Update and database
+      if (result != null) {
+        this.userService
+          .modifyUser(result);
+      }
     });
   }
 
