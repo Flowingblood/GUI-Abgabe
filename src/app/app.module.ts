@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GoalEditDialogComponent } from './components/goal-edit-dialog/goal-edit-dialog.component';
 import { UserEditDialogComponent } from './components/user-edit-dialog/user-edit-dialog.component';
-import { PasswordEditDialogComponent } from './components/password-edit-dialog/password-edit-dialog.component';
 import { GoalAddDialogComponent } from './components/goal-add-dialog/goal-add-dialog.component';
 import { GoalDeleteDialogComponent } from './components/goal-delete-dialog/goal-delete-dialog.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -26,7 +25,6 @@ import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-
     GoalsComponent,
     GoalEditDialogComponent,
     UserEditDialogComponent,
-    PasswordEditDialogComponent,
     GoalAddDialogComponent,
     GoalDeleteDialogComponent,
     NavBarComponent,
