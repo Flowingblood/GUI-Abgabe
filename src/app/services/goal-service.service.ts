@@ -32,6 +32,7 @@ export class GoalServiceService {
   }
 
   public createSubGoal(goal: Goal, user: User, name: string): SubGoal {
+    console.log(goal, user, name);
     const newGoal: SubGoal = {
       id: this.idService.getNewSubGoalId(goal.subscope, goal, user),
       name,

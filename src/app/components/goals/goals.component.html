@@ -19,11 +19,13 @@
           <span style="margin-left: 1%;">{{40}}%</span>
           
         </mat-panel-description>
-        <button (click)="openEditGoalDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;" aria-label="Edit" >
+        <button (click)="openEditGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
+          style="justify-content: flex-end;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="openDeleteGoalDialog($event, goal)" mat-icon-button color="primary" style="justify-content: flex-end;"  aria-label="Delete">
+          <button (click)="openDeleteGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
+            style="justify-content: flex-end;" aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
       </mat-expansion-panel-header>
@@ -33,11 +35,13 @@
 
           <span>{{sub_goal.name}}</span>
       
-          <button (click)="openEditSubGoalDialog($event, sub_goal)"  mat-icon-button color="primary" style="margin-left: auto;" aria-label="Edit">
+          <button (click)="openEditSubGoalDialog($event, sub_goal, currentUser)" mat-icon-button color="primary"
+            style="margin-left: auto;" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button (click)="openDeleteSubGoalDialog($event, sub_goal)" mat-icon-button color="primary" aria-label="Delete">
+          <button (click)="openDeleteSubGoalDialog($event, sub_goal, goal, currentUser)" mat-icon-button color="primary"
+            aria-label="Delete">
             <mat-icon>delete</mat-icon>
           </button>
 
@@ -48,7 +52,8 @@
       
       <br>
 
-      <button (click)="openAddGoalDialog($event)" style="display: block; margin: auto;" mat-stroked-button>
+      <button (click)="openAddSubGoalDialog($event, goal, currentUser)" style="display: block; margin: auto;"
+        mat-stroked-button aria-label="Example icon-button with a heart icon">
         Unterziel hinzufügen 
         <mat-icon>add</mat-icon>
       </button>
@@ -59,7 +64,8 @@
 
 <br>
 
-<button (click)="openAddGoalDialog($event)" style="display: block; margin: auto;" mat-stroked-button aria-label="Add Goal">
+<button (click)="openAddGoalDialog($event, currentUser)" style="display: block; margin: auto;" mat-stroked-button
+  aria-label="Add Goal">
   Oberziel hinzufügen 
   <mat-icon>add</mat-icon>
 </button>

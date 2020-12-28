@@ -6,6 +6,8 @@ import { AuthorizationService } from '../../services/authorization.service';
 import { BackendService } from '../../services/backend.service';
 import { Goal } from '../../entities/goal';
 import { GoalServiceService } from '../../services/goal-service.service';
+import { UserService } from '../../services/user.service';
+import { User } from 'src/app/entities/user';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +42,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authorizationService: AuthorizationService,
     private backendService: BackendService,
+    private userService: UserService,
     private goalService: GoalServiceService
   ) {}
 
@@ -80,5 +83,5 @@ export class LoginComponent implements OnInit {
    */
   public hasError = (controlName: string, errorName: string): boolean => {
     return this.loginForm.controls[controlName].hasError(errorName);
-  }
+  };;
 }

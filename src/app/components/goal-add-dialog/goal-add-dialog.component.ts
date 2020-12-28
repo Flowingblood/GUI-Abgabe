@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Goal } from 'src/app/entities/goal';
 
 @Component({
   selector: 'app-goal-add-dialog',
   templateUrl: './goal-add-dialog.component.html',
-  styleUrls: ['./goal-add-dialog.component.scss']
+  styleUrls: ['./goal-add-dialog.component.scss'],
 })
 export class GoalAddDialogComponent implements OnInit {
+  goalName: string;
 
-  constructor(private currDialog: MatDialogRef<GoalAddDialogComponent>) { 
+  constructor(private currDialog: MatDialogRef<GoalAddDialogComponent>) {
     this.currDialog.disableClose = true;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleSave(): void {
-    //TODO
+    this.currDialog.close(this.goalName);
   }
 
   handleAbort(): void {
-    this.currDialog.close();
+    this.currDialog.close(null);
   }
-
 }

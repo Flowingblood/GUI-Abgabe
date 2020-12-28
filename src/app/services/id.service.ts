@@ -22,11 +22,11 @@ export class IdService {
     return String(num).padStart(places, '0');
   }
 
-  public getUserIdFromId(id: string): number {
+  public getUserIdFromId(id: string | number): number {
     return +id.toString().substring(1, 4);
   }
 
-  public getGoalIdFromId(id: string): number {
+  public getGoalIdFromId(id: string | number): number {
     return +id.toString().substring(4, 7);
   }
 
@@ -44,7 +44,7 @@ export class IdService {
       (item) => +item.id.toString().substring(4, 7)
     );
 
-    const userId = user.id;
+    const userId = this.getUserIdFromId(user.id);
     const goalId = this.getNewId(usedIds);
 
     return this.buildId(userId, goalId, 0);
@@ -55,8 +55,8 @@ export class IdService {
       (item) => +item.id.toString().substring(7, 10)
     );
 
-    const userId = user.id;
-    const goalId = goal.id;
+    const userId = this.getUserIdFromId(user.id);
+    const goalId = this.getGoalIdFromId(goal.id);
     const subGoalId = this.getNewId(usedIds);
 
     return this.buildId(userId, goalId, subGoalId);

@@ -9,6 +9,7 @@ import { GoalDeleteDialogComponent } from '../goal-delete-dialog/goal-delete-dia
 import { User } from 'src/app/entities/user';
 import { AuthorizationService } from 'src/app/services/authorization.service';
 import { SubGoal } from 'src/app/entities/sub-goal';
+import { GoalServiceService } from '../../services/goal-service.service';
 
 @Component({
   selector: 'app-goals',
@@ -33,67 +34,91 @@ export class GoalsComponent implements OnInit {
     public goalEditDialog: MatDialog,
     public addGoalDialog: MatDialog,
     public deleteGoalDialog: MatDialog,
-    private backendService: BackendService,
+    private goalService: GoalServiceService,
     public authService: AuthorizationService
   ) {}
 
   ngOnInit(): void {
-    this.authService.getLoggedInUser().subscribe((currUser) => this.currentUser = currUser);
+    this.authService.getLoggedInUser().subscribe((currUser) => {
+      this.currentUser = currUser;
+      if (currUser !== null) {
+        this.goals = this.goalService.getGoalFromUser(this.currentUser);
+      } else {
+        this.goals = [];
+      }
+    });
   }
 
-  openEditGoalDialog($event: any, goal: Goal): void {
+  //TODO User ebenfalls als Argument
+  openEditGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
     this.editGoalDialogRef.componentInstance.goal = goal;
     this.editGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.modifyGoal(result, user);
+      }
     });
   }
 
-  openAddGoalDialog($event: any): void {
+  openAddGoalDialog($event: any, user: User): void {
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
     this.addGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.createGoal(user, result);
+      }
     });
   }
 
-  openDeleteGoalDialog($event: any, goal: Goal): void {
+  openDeleteGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.deleteGoalDialogRef = this.goalEditDialog.open(
       GoalDeleteDialogComponent
     );
     this.deleteGoalDialogRef.componentInstance.goal = goal;
     this.deleteGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.deleteGoal(result, user);
+        this.goals = this.goalService.getGoalFromUser(this.currentUser);
+      }
     });
   }
 
-  openEditSubGoalDialog($event: any, goal: SubGoal): void {
+  openEditSubGoalDialog($event: any, goal: SubGoal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
     this.editGoalDialogRef.componentInstance.goal = goal;
     this.editGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.modifySubGoal(result, user);
+      }
     });
   }
 
-  openAddSubGoalDialog($event: any): void {
+  openAddSubGoalDialog($event: any, goal: Goal, user: User): void {
+    console.log("a:", user);
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
     this.addGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.createSubGoal(goal, user, result);
+      }
     });
   }
 
-  openDeleteSubGoalDialog($event: any, goal: SubGoal): void {
+  openDeleteSubGoalDialog($event: any, subGoal: SubGoal, goal: Goal, 
+    user: User): void {
     $event.stopPropagation();
     this.deleteGoalDialogRef = this.goalEditDialog.open(
       GoalDeleteDialogComponent
     );
-    this.deleteGoalDialogRef.componentInstance.goal = goal;
+    this.deleteGoalDialogRef.componentInstance.goal = subGoal;
     this.deleteGoalDialogRef.afterClosed().subscribe((result) => {
-      //TODO Update and database
+      if (result !== null) {
+        this.goalService.deleteSubGoal(result, goal, user);
+        this.goals = this.goalService.getGoalFromUser(this.currentUser);
+      }
     });
   }
 }

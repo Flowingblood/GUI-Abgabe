@@ -37,7 +37,7 @@ export class AuthorizationService {
         .getAllUser()
         .then((users: User[]) => {
           const user = users.find(
-            (u: User) => u.username === username && u.password === password
+            (u: User) => u.username === username // TODO && u.password === password
           );
           const foundUser = user != null;
 

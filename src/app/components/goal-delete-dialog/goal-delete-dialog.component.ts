@@ -6,25 +6,22 @@ import { SubGoal } from 'src/app/entities/sub-goal';
 @Component({
   selector: 'app-goal-delete-dialog',
   templateUrl: './goal-delete-dialog.component.html',
-  styleUrls: ['./goal-delete-dialog.component.scss']
+  styleUrls: ['./goal-delete-dialog.component.scss'],
 })
 export class GoalDeleteDialogComponent implements OnInit {
-
   goal: Goal | SubGoal;
 
-  constructor(private currDialog: MatDialogRef<GoalDeleteDialogComponent>) { 
+  constructor(private currDialog: MatDialogRef<GoalDeleteDialogComponent>) {
     this.currDialog.disableClose = true;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleDelete(): void {
-    //TODO
+    this.currDialog.close(this.goal);
   }
 
   handleAbort(): void {
-    this.currDialog.close();
+    this.currDialog.close(null);
   }
-
 }
