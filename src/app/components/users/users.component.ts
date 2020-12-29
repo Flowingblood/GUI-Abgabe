@@ -8,6 +8,7 @@ import { UserDeleteDialogComponent } from '../user-delete-dialog/user-delete-dia
 import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { GoalServiceService } from '../../services/goal-service.service';
 
 @Component({
   selector: 'app-users',
@@ -29,6 +30,8 @@ export class UsersComponent implements OnInit {
     'username',
     'firstname',
     'lastname',
+    'status',
+    'percent',
     'actions',
   ];
 
@@ -41,11 +44,13 @@ export class UsersComponent implements OnInit {
     public userDeleteDialog: MatDialog,
     private userService: UserService,
     private router: Router,
+    public goalService: GoalServiceService,
   ) {}
 
   ngOnInit(): void {
     this.backendService.getAllUser().then((u) => {
       this.users = new MatTableDataSource(u);
+      this.goalService.getPercentNumberFromUser(u[0]);
     });
   }
 

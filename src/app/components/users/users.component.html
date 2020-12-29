@@ -41,9 +41,19 @@
         </ng-container>
 
         <ng-container matColumnDef="lastname">
-            <mat-header-cell *matHeaderCellDef> Nachname </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+          <mat-header-cell *matHeaderCellDef> Nachname </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+      </ng-container>
+
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef> Berechtigung </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.permission ? 'Trainer' : 'Kunde'}} </mat-cell>
         </ng-container>
+
+        <ng-container matColumnDef="percent">
+          <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{goalService.getPercentNumberFromUser(element) | number : '1.0-0'}}% </mat-cell>
+      </ng-container>
 
         <ng-container matColumnDef="actions">
             <mat-header-cell  *matHeaderCellDef width ="5%"></mat-header-cell>

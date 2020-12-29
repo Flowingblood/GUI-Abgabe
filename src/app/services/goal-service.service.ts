@@ -31,6 +31,26 @@ export class GoalServiceService {
     }
   }
 
+  public getPercentNumberFromUser(user: User): number {
+    let numberOfSubGoals = 0;
+    let numberOfCompletedSubGoals = 0;
+
+    user.scopeList.forEach((goal: Goal) => {
+      goal.subscope.forEach((subGoal: SubGoal) => {
+        numberOfSubGoals = numberOfSubGoals + 1;
+        if (subGoal.checked) {
+          numberOfCompletedSubGoals = numberOfCompletedSubGoals + 1;
+        }
+      });
+    });
+
+    if (numberOfSubGoals === 0) {
+      return 0;
+    } else {
+      return (numberOfCompletedSubGoals / numberOfSubGoals) * 100;
+    }
+  }
+
   public createGoal(user: User, name: string): Goal {
     const newGoal: Goal = {
       id: this.idService.getNewGoalId(user.scopeList, user),
