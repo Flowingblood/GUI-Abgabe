@@ -4,9 +4,17 @@
         <button *ngIf="currentUser.permission" mat-raised-button style="margin-left: 1%;" routerLink="./users">Nutzerübersicht</button>
 
         <span style="flex: 1 1 auto;"></span>
-    <button (click)="handleLogOut()" routerLink="./login" color="warn" mat-flat-button>
+
+        <button (click)="handlePasswordChange($event)" mat-raised-button >
+          Passwort ändern
+          <mat-icon>vpn_key</mat-icon>
+        </button>
+
+
+    <button (click)="handleLogOut()" routerLink="./login" color="warn" mat-raised-button style="margin-left: 1%;">
       {{currentUser.username}}
       <mat-icon>exit_to_app</mat-icon>
     </button>
+    
     </mat-toolbar-row>
 </mat-toolbar>
