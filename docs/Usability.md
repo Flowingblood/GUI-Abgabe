@@ -10,9 +10,9 @@ Der Nutzer öffnet die Webseite über den direkten Hauptlink ohne weiter Unterpf
 
 ## Unangemeldet
 Der Nutzer befindet sich ungemeldet auf der Login Seite.  
-Die Login Seite befinder sich im Unterpfad ``/login``.
+Die Login Seite befindet sich im Unterpfad ``/login``.
 
-## Angmeldet als Kunde
+## Angemeldet als Kunde
 Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Kunden Benutzer Account über das Login Formular angemeldet und befindet sich jetzt aus der Übersicht seiner eigenen Ziele.
 
 ## Angemeldet als Trainer
@@ -23,14 +23,14 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Freies Testen der Ziele Übersicht
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Benutzer intuitive dazu in der Lage sind Ziele anzulegen, zu bearbeiten und abzuhaken sowie zu löschen.  
 ``Ausgangssituation``: Angemeldet als Kunde  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Tester frei Testen lassen.
 
 ### Freies Testen der User Übersicht
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Benutzer intuitive dazu in der Lage sind User anzulegen, zu bearbeiten und abzuhaken sowie zu löschen.  
 ``Ausgangssituation``: Angemeldet als Trainer  
 ``Vorbedingung``: Die User Übersicht muss geöffnet sein.  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Tester frei Testen lassen.
 ## Anmeldungs-Tests
 ### Kunden-Anmeldung
@@ -62,20 +62,20 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 5. Auf Login drücken.
 6. Prüfen ob das Password Eingabefehld immernoch rot umranded ist und eine Fehler Nachricht untendrunter angezeigt wird.
 7. Das Password Feld auswählen.
-8. Ausserhalb des Password Feldes drücken.
+8. Außerhalb des Password Feldes drücken.
 9. Prüfen ob das Password Eingabefehld immernoch rot umranded ist und eine Fehler Nachricht untendrunter angezeigt wird.
 10. Den Wert im Password Eingabefeld verändern.
 11. Prüfen ob der Fehler beim Password Eingabefeld verschwunden ist.
 
 ## Navigationsleiste-Tests
 ### Ausgeblendete Navigationsleiste
-``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird wenn der Nutzer nicht angemeldet ist.  
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird, wenn der Nutzer nicht angemeldet ist.  
 ``Ausgangssituation``: Unangemeldet  
 ``Schritt für Schritt``:  
 1. Prüfen ob die Navigationsleiste nicht angezeigt wird.
 
 ### Ausblenden der Navigationsleiste bei Abmeldung
-``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird wenn der Nutzer sich abmeldet.  
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird, wenn der Nutzer sich abmeldet.  
 ``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
 ``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
 ``Schritt für Schritt``:  
@@ -92,7 +92,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 3. Prüfen ob der Nutzer abgemeldet ist.
 
 ### Passwort ändern Menü
-``Kurzbeschreibung``: Bei diesem Test wird geprüft ob der Passwort ändern Knopf angezeigt wird und eine Funktion besitzt.  
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob der „Passwort ändern“ Knopf angezeigt wird und eine Funktion besitzt.  
 ``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
 ``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
 ``Schritt für Schritt``:  
@@ -101,15 +101,15 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 3. Prüfen ob der Passwort ändern Dialog sich öffnet.
 
 ### Angezeigte Menü Punkte als Kunde
-``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden wenn ein Kunde angemeldet ist.  
-``Ausgangssituation``: Angmeldet als Kunde  
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden, wenn ein Kunde angemeldet ist.  
+``Ausgangssituation``: Angemeldet als Kunde  
 ``Schritt für Schritt``:  
 1. Prüfen ob der Menü Punkt "Ziele" angezeigt wird.
 2. Prüfen ob der Menü Punkt "Ziele" klickbar ist.
 
 ### Angezeigte Menü Punkte als Trainer
-``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden wenn ein Trainer angemeldet ist.  
-``Ausgangssituation``: Angmeldet als Trainer  
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden, wenn ein Trainer angemeldet ist.  
+``Ausgangssituation``: Angemeldet als Trainer  
 ``Schritt für Schritt``:  
 1. Prüfen ob der Menü Punkt "Ziele" angezeigt wird.
 2. Prüfen ob der Menü Punkt "Ziele" klickbar ist.
@@ -118,7 +118,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 
 ### Angezeigte Menü Punkte Funktionsprüfung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle angezeigten linken Menü Punkte eine Funktion haben  
-``Ausgangssituation``: Angmeldet als Trainer  
+``Ausgangssituation``: Angemeldet als Trainer  
 ``Schritt für Schritt``:  
 1. Auf den Menü Punkt "Nutzerübersicht" klicken.
 2. Prüfen ob die Nutzerübersicht angezeigt wird.
@@ -270,7 +270,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ``Vorbedingung``: Die User Übersicht muss geöffnet sein. Es muss mindestens 1 User im System hinterlegt sein  
 ``Schritt für Schritt``:  
 1. Prüfen ob ein Bearbeitunsknopf neben den Benutzern sichtbar ist.
-2. Auf den Bearbeitunsknopf drücken.
+2. Auf den Bearbeitungsknopf drücken.
 3. Prüfen ob der Benutzer bearbeiten Dialog sich geöffnet hat.
 4. Prüfen ob jeweils ein Eingabefeld für Vorname, Nachname, Username und Passwort vorhanden ist.
 5. Prüfen ob ein Slider zum auswählen des Ranges vorhanden ist.
@@ -284,8 +284,8 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ``Ausgangssituation``: Angemeldet als Trainer  
 ``Vorbedingung``: Die User Übersicht muss geöffnet sein. Es muss mindestens 1 User im System hinterlegt sein  
 ``Schritt für Schritt``:  
-1. Prüfen ob ein Löschenknopf neben den Benutzern sichtbar ist.
-2. Auf den Löschenknopf drücken.
+1. Prüfen ob ein Löschen Knopf neben den Benutzern sichtbar ist.
+2. Auf den Löschen Knopf drücken.
 3. Prüfen ob der Benutzer löschen Dialog sich geöffnet hat.
 4. Prüfen ob in dem Dialog 1 Knopf zum Abbrechen sowie 1 Knopf zum Löschen vorhanden ist.
 5. Auf Löschen drücken.
