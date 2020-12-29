@@ -19,6 +19,19 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Kunden Benutzer Ac
 Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer Account über das Login Formular angemeldet und befindet sich jetzt aus der Übersicht seiner eigenen Ziele.
 
 # Tests
+## Allgemeine-Tests
+### Freies Testen der Ziele Übersicht
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Benutzer intuitive dazu in der Lage sind Ziele anzulegen, zu bearbeiten und abzuhaken sowie zu löschen.  
+``Ausgangssituation``: Angemeldet als Kunde  
+``Schrit für Schritt``:  
+1. Tester frei Testen lassen.
+
+### Freies Testen der User Übersicht
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Benutzer intuitive dazu in der Lage sind User anzulegen, zu bearbeiten und abzuhaken sowie zu löschen.  
+``Ausgangssituation``: Angemeldet als Trainer  
+``Vorbedingung``: Die User Übersicht muss geöffnet sein.  
+``Schrit für Schritt``:  
+1. Tester frei Testen lassen.
 ## Anmeldungs-Tests
 ### Kunden-Anmeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Anmeldung eines Kunden Benutzer Accounts über das Login Formular für ein auf der Login Seite funktioniert.  
@@ -78,6 +91,15 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 2. Auf den angemeldeten Usernamen klicken.
 3. Prüfen ob der Nutzer abgemeldet ist.
 
+### Passwort ändern Menü
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob der Passwort ändern Knopf angezeigt wird und eine Funktion besitzt.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob rechts oben in der Navigationsleiste ein "Passwort ändern" Knopf vorhanden ist.
+2. Auf den "Passwort ändern" Knopf drücken.
+3. Prüfen ob der Passwort ändern Dialog sich öffnet.
+
 ### Angezeigte Menü Punkte als Kunde
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden wenn ein Kunde angemeldet ist.  
 ``Ausgangssituation``: Angmeldet als Kunde  
@@ -102,3 +124,180 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 2. Prüfen ob die Nutzerübersicht angezeigt wird.
 3. Auf den Menü Punkt "Ziele" klicken.
 4. Prüfen ob die eigenen Ziele angezeigt werden.
+
+## Ziele-Tests
+### Anlegen von Zielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Ziel anzulegen.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob "Oberziel hinzufügen" Knopf vorhanden ist
+2. Auf den "Oberziel hinzufügen" Knopf drücken
+3. Prüfen ob sich der "Ziele hinzufügen" Dialog öffnet.
+4. Prüfen ob in dem Dialog ein Einfagebfeld für den Ziel Namen vorhanden ist und 1 Knopf zum Abbrechen sowie 1 Knopf zum Speichern.
+5. Auf Speichern drücken.
+6. Prüfen ob Dialog noch offen ist.
+7. Namenseingabefeld mit einem Ziel Namen füllen.
+8. Auf Speichern drücken.
+9. Prüfen ob Dialog sich geschlossen hat.
+10. Prüfen ob Ziel nun angezeigt wird.
+
+### Aus und Einklappen von Zielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Ziel aus und einzuklappen.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Auf das Ziel klicken
+2. Prüfen ob sich das Ziel ausgeklappt hat und mögliche Unterziele sowie ein "Unterziele hinzufügen" Knopf erscheint.
+3. Auf das Ziel klicken
+4. Prüfen ob sich das Ziel eingeklappt hat und mögliche Unterziele sowie ein "Unterziele hinzufügen" Knopf verschwinden.
+
+### Anlegen von Unterzielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Unterziel anzulegen.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt und ausgeklappt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob "Unterziel hinzufügen" Knopf vorhanden ist
+2. Auf den "Unterziel hinzufügen" Knopf drücken
+3. Prüfen ob sich der "Ziele hinzufügen" Dialog öffnet.
+4. Prüfen ob in dem Dialog ein Einfagebfeld für den Ziel Namen vorhanden ist und 1 Knopf zum Abbrechen sowie 1 Knopf zum Speichern.
+5. Auf Speichern drücken.
+6. Prüfen ob Dialog noch offen ist.
+7. Namenseingabefeld mit einem Ziel Namen füllen.
+8. Auf Speichern drücken.
+9. Prüfen ob Dialog sich geschlossen hat.
+10. Prüfen ob Unterziel nun angezeigt wird.
+
+### Abhaken von Unterzielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Unterziel abzuhaken und sich daraus folgend die Prozentleiste anpasst.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt und ausgeklappt worden sein. Und es muss 1 Unterziel bereits hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Auf Checkbox Feld vom Unterziel drücken.
+2. Prüfen ob auf dem nun ein Haken ist.
+3. Prüfen ob sich die Prozentleiste vom Ziel angepasst hat.
+4. Auf Checkbox Feld vom Unterziel drücken.
+5. Prüfen ob der Haken auf dem Checkbox Feld verschwunden ist.
+6. Prüfen ob sich die Prozentleiste vom Ziel angepasst hat.
+
+### Bearbeiten von Zielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Ziel Name zu bearbeiten.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Editierungsknopf neben dem Ziel zu sehen ist.
+2. Auf den Editierungsknopf drücken.
+3. Prüfen ob sich ein Ziel Editieren Dialog geöffnet hat.
+4. Prüfen ob in dem Dialog ein Einfagebfeld für den Ziel Namen vorhanden ist und 1 Knopf zum Abbrechen sowie 1 Knopf zum Speichern.
+5. Auf Speichern drücken.
+6. Prüfen ob Dialog noch offen ist.
+7. Namenseingabefeld mit einem Ziel Namen füllen.
+8. Auf Speichern drücken.
+9. Prüfen ob Dialog sich geschlossen hat.
+10. Prüfen ob neuer Ziel Name nun angezeigt wird.
+
+### Bearbeiten von Unterzielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Unterziel Name zu bearbeiten.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt und ausgeklappt worden sein. Und es muss 1 Unterziel bereits hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Editierungsknopf neben dem Unterziel zu sehen ist.
+2. Auf den Editierungsknopf drücken.
+3. Prüfen ob sich ein Ziel Editieren Dialog geöffnet hat.
+4. Prüfen ob in dem Dialog ein Einfagebfeld für den Ziel Namen vorhanden ist und 1 Knopf zum Abbrechen sowie 1 Knopf zum Speichern.
+5. Auf Speichern drücken.
+6. Prüfen ob Dialog noch offen ist.
+7. Namenseingabefeld mit einem Ziel Namen füllen.
+8. Auf Speichern drücken.
+9. Prüfen ob Dialog sich geschlossen hat.
+10. Prüfen ob neuer Unterziel Name nun angezeigt wird.
+
+### Löschen von Zielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Ziel mit allen Unterzielen zu löschen.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Löschknopf neben dem Ziel zu sehen ist.
+2. Auf den Löschknopf drücken.
+3. Prüfen ob sich ein Ziel Löschen Dialog geöffnet hat.
+4. Prüfen ob in dem Dialog 1 Knopf zum Abbrechen sowie 1 Knopf zum Löschen vorhanden ist.
+5. Auf Löschen drücken.
+6. Prüfen ob Dialog sich geschlossen hat.
+7. Prüfen ob das Ziel nun nicht mehr sichtbar ist.
+
+### Löschen von Unterzielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Unterziel zu löschen.  
+``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
+``Vorbedingung``: Es muss bereits mindestens 1 Ziel hinzugefügt und ausgeklappt worden sein. Und es muss 1 Unterziel bereits hinzugefügt worden sein.  
+``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Löschknopf neben dem Unterziel zu sehen ist.
+2. Auf den Löschknopf drücken.
+3. Prüfen ob sich ein Ziel Löschen Dialog geöffnet hat.
+4. Prüfen ob in dem Dialog 1 Knopf zum Abbrechen sowie 1 Knopf zum Löschen vorhanden ist.
+5. Auf Löschen drücken.
+6. Prüfen ob Dialog sich geschlossen hat.
+7. Prüfen ob das Unterziel nun nicht mehr sichtbar ist.
+8. Prüfen ob sich die Prozentleiste angepasst hat.
+
+## User-Tests
+### Anlegen von Usern
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein User anzulegen   
+``Ausgangssituation``: Angemeldet als Trainer  
+``Vorbedingung``: Die User Übersicht muss geöffnet sein.  
+``Schritt für Schritt``:  
+1. Prüfen ob ein "Benutzer hinzufügen" Knopf sichtbar ist.
+2. Auf den "Benutzer hinzufügen" Knopf drücken.
+3. Prüfen ob der Benutzer hinzufügen Dialog sich geöffnet hat.
+4. Prüfen ob jeweils ein Eingabefeld für Vorname, Nachname, Username und Passwort vorhanden ist.
+5. Prüfen ob ein Slider zum auswählen des Ranges vorhanden ist.
+6. Auf Speichern drücken.
+7. Prüfen ob der Dialog noch geöffnet ist.
+8. Fülle alle Eingabefelder aus.
+9. Auf Speichern drücken.
+10. Prüfen ob sicher der Dialog geschlossen hat.
+11. Prüfen ob der neu angelegte Benutzer in der Tabelle erscheint.
+
+### Bearbeiten von Usern
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein User zu bearbeiten   
+``Ausgangssituation``: Angemeldet als Trainer  
+``Vorbedingung``: Die User Übersicht muss geöffnet sein. Es muss mindestens 1 User im System hinterlegt sein  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Bearbeitunsknopf neben den Benutzern sichtbar ist.
+2. Auf den Bearbeitunsknopf drücken.
+3. Prüfen ob der Benutzer bearbeiten Dialog sich geöffnet hat.
+4. Prüfen ob jeweils ein Eingabefeld für Vorname, Nachname, Username und Passwort vorhanden ist.
+5. Prüfen ob ein Slider zum auswählen des Ranges vorhanden ist.
+6. Verändern der Eingabefelder 
+7. Auf Speichern drücken.
+8.  Prüfen ob sicher der Dialog geschlossen hat.
+9.  Prüfen ob der neu bearbeitete Benutzer in der Tabelle erscheint.
+
+### Löschen von Usern
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein User zu löschen   
+``Ausgangssituation``: Angemeldet als Trainer  
+``Vorbedingung``: Die User Übersicht muss geöffnet sein. Es muss mindestens 1 User im System hinterlegt sein  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Löschenknopf neben den Benutzern sichtbar ist.
+2. Auf den Löschenknopf drücken.
+3. Prüfen ob der Benutzer löschen Dialog sich geöffnet hat.
+4. Prüfen ob in dem Dialog 1 Knopf zum Abbrechen sowie 1 Knopf zum Löschen vorhanden ist.
+5. Auf Löschen drücken.
+6. Prüfen ob Dialog sich geschlossen hat.
+6. Prüfe ob der Benutzer nicht mehr in der Tabelle ist.
+
+### Öffnen von User Zielen
+``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist die Ziele von anderen Benutzern anzuzeigen  
+``Ausgangssituation``: Angemeldet als Trainer  
+``Vorbedingung``: Die User Übersicht muss geöffnet sein. Es muss mindestens 1 User im System hinterlegt sein  
+``Schritt für Schritt``:  
+1. Prüfen ob ein Flaggenknopf neben den Benutzern sichtbar ist.
+2. Auf den Flaggenknopf drücken.
+3. Prüfen ob sich die Zeiel Übersicht von dem ausgewählten Benutzer öffnet.
+4. Prüfen ob der oben angezeigte Name dem vom ausgewählten Benutzer entspricht.
