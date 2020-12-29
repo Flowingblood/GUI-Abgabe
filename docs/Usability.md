@@ -23,7 +23,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Kunden-Anmeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Anmeldung eines Kunden Benutzer Accounts über das Login Formular für ein auf der Login Seite funktioniert.  
 ``Ausgangssituation``: Unangemeldet  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob Anmelde Formular vorhanden. Benötigt wird jeweils 1 Eingabefeld für einen Usernamen und für ein Password. Desweiten muss ein Anmeldeknopf unten den beiden Eingabefeldern sichtbar sein.
 2. Usernamen und Passwort des Test Kunden Benutzer Accounts eingeben
 3. Auf Login drücken
@@ -32,7 +32,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Trainer-Anmeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Anmeldung eines Trainer Benutzer Accounts über das Login Formular für ein auf der Login Seite funktioniert.  
 ``Ausgangssituation``: Unangemeldet  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob Anmelde Formular vorhanden. Benötigt wird jeweils 1 Eingabefeld für einen Usernamen und für ein Password. Desweiten muss ein Anmeldeknopf unten den beiden Eingabefeldern sichtbar sein.  
 2. Usernamen und Passwort des Test Trainer Benutzer Accounts eingeben
 3. Auf Login drücken
@@ -41,7 +41,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Fehlgeschlage-Anmeldung mit Fehlermeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob bei der Anmeldung über das Login Formular mit fehlerhaften Anmeldedaten ein Fehler beim Password Feld angezeigt wird und ob der Fehler nach einer Änderung wieder verschwindet.  
 ``Ausgangssituation``: Unangemeldet  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Fehlerhafte Anmelde Daten in das Username und Password Eingabefeld eingeben.
 2. Auf Login drücken.
 3. Prüfen ob die Anmeldung fehlgeschlagen ist.
@@ -58,14 +58,14 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Ausgeblendete Navigationsleiste
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird wenn der Nutzer nicht angemeldet ist.  
 ``Ausgangssituation``: Unangemeldet  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob die Navigationsleiste nicht angezeigt wird.
 
 ### Ausblenden der Navigationsleiste bei Abmeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Navigationsleiste ausgeblendet wird wenn der Nutzer sich abmeldet.  
 ``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
 ``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Rechts oben innerhalb der Navigationsleiste aus den Usernamen zum abmelden klicken.
 2. Prüfen ob die Navigationsleiste nicht mehr sichtbar ist.
 
@@ -73,7 +73,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob der Abmeldeknopf mit dem richtigen Namen angezeigt wird.  
 ``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
 ``Weiter Bemerkung``: Dieser Test muss 2 Mal ausgeführt werden. 1 Mal mit einem Kunden Benutzer Konto und 1 Mal mit einem Trainer Benutzer Konto.  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob rechts oben in der Navigationsleiste der angemeldete Username steht.
 2. Auf den angemeldeten Usernamen klicken.
 3. Prüfen ob der Nutzer abgemeldet ist.
@@ -81,14 +81,14 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Angezeigte Menü Punkte als Kunde
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden wenn ein Kunde angemeldet ist.  
 ``Ausgangssituation``: Angmeldet als Kunde  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob der Menü Punkt "Ziele" angezeigt wird.
 2. Prüfen ob der Menü Punkt "Ziele" klickbar ist.
 
 ### Angezeigte Menü Punkte als Trainer
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle nötigen linken Menü Punkte angezeigt werden wenn ein Trainer angemeldet ist.  
 ``Ausgangssituation``: Angmeldet als Trainer  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Prüfen ob der Menü Punkt "Ziele" angezeigt wird.
 2. Prüfen ob der Menü Punkt "Ziele" klickbar ist.
 3. Prüfen ob der Menü Punkt "Nutzerübersicht" angezeigt wird.
@@ -97,7 +97,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ### Angezeigte Menü Punkte Funktionsprüfung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob alle angezeigten linken Menü Punkte eine Funktion haben  
 ``Ausgangssituation``: Angmeldet als Trainer  
-``Schrit für Schritt``:  
+``Schritt für Schritt``:  
 1. Auf den Menü Punkt "Nutzerübersicht" klicken.
 2. Prüfen ob die Nutzerübersicht angezeigt wird.
 3. Auf den Menü Punkt "Ziele" klicken.
