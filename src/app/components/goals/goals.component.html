@@ -1,43 +1,43 @@
 <mat-toolbar class="stickyBar" color="primary">
-    <mat-toolbar-row>
-      <span>Ziele von: {{currentUser ? currentUser.firstName + " " +currentUser.lastName : 'Lädt'}}</span>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>Ziele von: {{currentUser ? currentUser.firstName + " " +currentUser.lastName : 'Lädt'}}</span>
+  </mat-toolbar-row>
 </mat-toolbar>
 
-
-  <mat-accordion class="example-headers-align">
-    <div *ngFor="let goal of goals">
+<mat-accordion class="example-headers-align">
+  <div *ngFor="let goal of goals">
 
     <mat-expansion-panel>
-      <mat-expansion-panel-header style="align-items:center;">
-        <mat-panel-title style="align-items: center;">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="center_items">
           {{goal.name}}
         </mat-panel-title>
-        <mat-panel-description style="align-items: center;">
-          
-          <mat-progress-bar class="centeredProgressBar" mode="determinate" [value]="goalService.getPercentNumberFromGoal(goal)">
+        <mat-panel-description class="center_items">
+
+          <mat-progress-bar class="centeredProgressBar" mode="determinate"
+            [value]="goalService.getPercentNumberFromGoal(goal)">
           </mat-progress-bar>
-          <span style="margin-left: 1%;">{{goalService.getPercentNumberFromGoal(goal) | number : '1.0-0'}}%</span>
-          
+          <span class="margin_left_1">{{goalService.getPercentNumberFromGoal(goal) | number : '1.0-0'}}%</span>
+
         </mat-panel-description>
         <button (click)="openEditGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
-          style="justify-content: flex-end;" aria-label="Edit">
-            <mat-icon>edit</mat-icon>
-          </button>
+          class="content_flex_end" aria-label="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
 
-          <button (click)="openDeleteGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
-            style="justify-content: flex-end;" aria-label="Delete">
-            <mat-icon>delete</mat-icon>
-          </button>
+        <button (click)="openDeleteGoalDialog($event, goal, currentUser)" mat-icon-button color="primary"
+          class="content_flex_end" aria-label="Delete">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-expansion-panel-header>
 
       <div *ngFor="let sub_goal of goal.subscope">
-        <mat-card style="align-items:center; display: flex">
+        <mat-card class="center_card">
 
           <span>{{sub_goal.name}}</span>
-      
+
           <button (click)="openEditSubGoalDialog($event, sub_goal, currentUser)" mat-icon-button color="primary"
-            style="margin-left: auto;" aria-label="Edit">
+            class="left_margin" aria-label="Edit">
             <mat-icon>edit</mat-icon>
           </button>
 
@@ -46,18 +46,18 @@
             <mat-icon>delete</mat-icon>
           </button>
 
-          <mat-checkbox color="primary" style="padding-left: 10px;" [(ngModel)]="sub_goal.checked"
+          <mat-checkbox color="primary" class="checkbox_padding" [(ngModel)]="sub_goal.checked"
             (change)="toggleValue($event, sub_goal, currentUser)">
           </mat-checkbox>
-        
+
         </mat-card>
       </div>
-      
+
       <br>
 
-      <button (click)="openAddSubGoalDialog($event, goal, currentUser)" style="display: block; margin: auto;"
-        mat-stroked-button aria-label="Example icon-button with a heart icon">
-        Unterziel hinzufügen 
+      <button (click)="openAddSubGoalDialog($event, goal, currentUser)" class="center_button"
+        mat-stroked-button aria-label="Open SubGoal Dialog">
+        Unterziel hinzufügen
         <mat-icon>add</mat-icon>
       </button>
 
@@ -67,8 +67,8 @@
 
 <br>
 
-<button (click)="openAddGoalDialog($event, currentUser)" style="display: block; margin: auto;" mat-stroked-button
+<button (click)="openAddGoalDialog($event, currentUser)" class="center_button" mat-stroked-button
   aria-label="Add Goal">
-  Oberziel hinzufügen 
+  Oberziel hinzufügen
   <mat-icon>add</mat-icon>
 </button>

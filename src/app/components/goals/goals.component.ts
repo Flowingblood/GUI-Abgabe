@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { GoalEditDialogComponent } from '../goal-edit-dialog/goal-edit-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { UserEditDialogComponent } from '../user-edit-dialog/user-edit-dialog.component';
 import { Goal } from 'src/app/entities/goal';
-import { BackendService } from 'src/app/services/backend.service';
 import { GoalAddDialogComponent } from '../goal-add-dialog/goal-add-dialog.component';
 import { GoalDeleteDialogComponent } from '../goal-delete-dialog/goal-delete-dialog.component';
 import { User } from 'src/app/entities/user';
-import { AuthorizationService } from 'src/app/services/authorization.service';
 import { SubGoal } from 'src/app/entities/sub-goal';
 import { GoalServiceService } from '../../services/goal-service.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -20,6 +17,8 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./goals.component.scss'],
 })
 export class GoalsComponent implements OnInit {
+
+  //Momentaner User
   currentUser: User;
 
   // Edit Popupdialog
@@ -33,6 +32,15 @@ export class GoalsComponent implements OnInit {
 
   goals: Goal[];
 
+  /**
+   * Klassen Konstruktor
+   * @param goalEditDialog  GoalEditDialog
+   * @param addGoalDialog  AddGoalDialog
+   * @param deleteGoalDialog DeleteGoalDialog
+   * @param goalService GoalService zum zugriff auf die Datenbank
+   * @param userService UserService zum zugriff auf die Datenbank
+   * @param route Router zum routen der komponente
+   */
   constructor(
     public goalEditDialog: MatDialog,
     public addGoalDialog: MatDialog,
@@ -40,10 +48,11 @@ export class GoalsComponent implements OnInit {
     public goalService: GoalServiceService,
     public userService: UserService,
     private route: ActivatedRoute,
-  ) {}
+  ) { }
 
+  //TODO
   ngOnInit(): void {
-    this.route.paramMap.subscribe( paramMap => {
+    this.route.paramMap.subscribe(paramMap => {
       this.userService.getUserByUserid(+paramMap.get('id')).then((user) => {
         this.currentUser = user;
         if (user !== null) {
@@ -55,6 +64,12 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Ziel Bearbeiten Dialog
+   * @param $event Das aufgerufene Event
+   * @param goal Das Ziel zum editieren
+   * @param user Der Nutzer welchem das Ziel gehört
+   */
   openEditGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
@@ -66,6 +81,11 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Ziel Hinzufüge Dialog
+   * @param $event Das aufgerufene Event
+   * @param user Der Nutzer welchem das Ziel gehört
+   */
   openAddGoalDialog($event: any, user: User): void {
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
@@ -76,6 +96,12 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Ziel Löschen Dialog
+   * @param $event Das aufgerufene Event
+   * @param goal Das Ziel welches gelöscht wird
+   * @param user Der Nutzer welchem das Ziel gehört
+   */
   openDeleteGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.deleteGoalDialogRef = this.goalEditDialog.open(
@@ -90,6 +116,12 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Sub-Ziel Bearbeiten Dialog
+   * @param $event Das aufgerufene Event
+   * @param goal Das Ziel welches gelöscht wird
+   * @param user Der Nutzer welchem das Ziel gehört
+   */
   openEditSubGoalDialog($event: any, goal: SubGoal, user: User): void {
     $event.stopPropagation();
     this.editGoalDialogRef = this.goalEditDialog.open(GoalEditDialogComponent);
@@ -101,6 +133,12 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Sub-Ziel Hinzufüge Dialog
+   * @param $event Das aufgerufene Event
+   * @param goal Das Ziel welches hinzugefügt wird
+   * @param user Der Nutzer welchem das Ziel gehört
+   */
   openAddSubGoalDialog($event: any, goal: Goal, user: User): void {
     $event.stopPropagation();
     this.addGoalDialogRef = this.goalEditDialog.open(GoalAddDialogComponent);
@@ -111,6 +149,13 @@ export class GoalsComponent implements OnInit {
     });
   }
 
+  /**
+   * Öffnet den Sub-Goal Löschen Dialog
+   * @param $event Das aufgerufene Event
+   * @param subGoal Das Sub-Ziel welches gelöscht wird
+   * @param goal Das Ziel welches dem Sub-Ziel angehört
+   * @param user Der Nutzer welchem das Ziel gehörte
+   */
   openDeleteSubGoalDialog(
     $event: any,
     subGoal: SubGoal,
@@ -130,7 +175,13 @@ export class GoalsComponent implements OnInit {
     });
   }
 
-  public toggleValue(
+  /**
+   * Setzt das Sub-Goal auf den entsprechenden boolschen Wert
+   * @param $event Das aufgerufene Event
+   * @param subGoal Das Sub-Ziel welches den boolschen Wert bekommt
+   * @param user Der Nutzer welchem das Ziel gehörte
+   */
+  toggleValue(
     $event: MatCheckboxChange,
     subGoal: SubGoal,
     user: User

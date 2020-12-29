@@ -1,20 +1,20 @@
 <mat-toolbar *ngIf="this.currentUser !== null">
-    <mat-toolbar-row>
-        <button mat-raised-button routerLink="./goals">Ziele</button>
-        <button *ngIf="currentUser.permission" mat-raised-button style="margin-left: 1%;" routerLink="./users">Nutzerübersicht</button>
+  <mat-toolbar-row>
+    <button mat-raised-button routerLink="./goals">Ziele</button>
+    <button *ngIf="currentUser.permission" mat-raised-button class="margin_left_1"
+      routerLink="./users">Nutzerübersicht</button>
 
-        <span style="flex: 1 1 auto;"></span>
+    <span class="right_span"></span>
 
-        <button (click)="handlePasswordChange($event)" mat-raised-button >
-          Passwort ändern
-          <mat-icon>vpn_key</mat-icon>
-        </button>
+    <button (click)="handlePasswordChange($event)" mat-raised-button>
+      Passwort ändern
+      <mat-icon>vpn_key</mat-icon>
+    </button>
 
-
-    <button (click)="handleLogOut()" routerLink="./login" color="warn" mat-raised-button style="margin-left: 1%;">
+    <button (click)="handleLogOut()" routerLink="./login" color="warn" mat-raised-button class="margin_left_1">
       {{currentUser.username}}
       <mat-icon>exit_to_app</mat-icon>
     </button>
-    
-    </mat-toolbar-row>
+
+  </mat-toolbar-row>
 </mat-toolbar>

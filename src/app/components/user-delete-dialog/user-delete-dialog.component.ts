@@ -9,8 +9,13 @@ import { User } from 'src/app/entities/user';
 })
 export class UserDeleteDialogComponent implements OnInit {
 
+  //Der zu löschende Nutzer
   user: User;
 
+  /**
+   * Klassen Konstruktor
+   * @param currDialog der momentane Dailog zum schließen
+   */
   constructor(private currDialog: MatDialogRef<UserDeleteDialogComponent>) {
     //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
     currDialog.disableClose = true;
@@ -18,11 +23,16 @@ export class UserDeleteDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  /**
+   * Schließt den momentanen Dialog und gibt den Nutzer weiter
+   */
   handleDelete(): void {
     this.currDialog.close(this.user);
   }
 
+  /**
+   * Schließt den momentanen Dialog und gibt Null weiter
+   */
   handleAbort(): void {
     this.currDialog.close(null);
   }

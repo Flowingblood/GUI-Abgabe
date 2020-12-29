@@ -2,8 +2,38 @@
     position: sticky;
     top: 0;
 }
+
 .centeredProgressBar{
     margin-left: 5%;
     width: 30%;
 } 
 
+.center_items{
+    align-items:center;
+}
+
+.margin_left_1{
+    margin-left: 1%;
+}
+
+.content_flex_end{
+    justify-content: flex-end;
+}
+
+.center_card{
+    align-items:center;
+    display: flex
+}
+
+.left_margin{
+    margin-left: auto;
+}
+
+.checkbox_padding{
+    padding-left: 10px;
+}
+
+.center_button{
+    display: block;
+    margin: auto;
+}

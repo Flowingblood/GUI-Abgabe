@@ -13,13 +13,22 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PasswordEditDialogComponent implements OnInit {
 
+  //Momentaner Nutzer
   currUser: User;
 
+  //FormGroup welche die beiden PasswortInputFelder enthält
   passwordForm: FormGroup = new FormGroup({
     password: new FormControl('', [Validators.required]),
     passwordValidation: new FormControl('', [Validators.required]),
   });
 
+  /**
+   * Klassen Konstruktor
+   * @param authService Service um den momentanen Nutzer zu ermitteln
+   * @param currDialog Der momentane Dialog für schließ Aktionen
+   * @param snackBar Pop-Up Snack Bar zur Information des Nutzers
+   * @param userService Service zum Ändern des Nutzers
+   */
   constructor(public authService: AuthorizationService, private currDialog: MatDialogRef<PasswordEditDialogComponent>, public snackBar: MatSnackBar,public userService: UserService) { 
     //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
     currDialog.disableClose = true;
@@ -29,10 +38,16 @@ export class PasswordEditDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Schließt den momentanen Dialog
+   */
   handleAbort(): void {
     this.currDialog.close(null);
   }
 
+  /**
+   * Prüft ob die Passwort Input felder ausgefüllt sind und übereinstimmen, wenn nicht wird der Nutzer darüber informiert mit einer SnackBar
+   */
   handleSave(): void{
     if(this.passwordForm.get("password").value === "" || this.passwordForm.get("passwordValidation").value == ""){
       this.snackBar.open("Füllen Sie bitte alle Felder aus !","Okay");
@@ -47,10 +62,10 @@ export class PasswordEditDialogComponent implements OnInit {
   }
 
   /**
-   * Checks if the form has an error.
-   * @param errorName Name of the error.
-   * @param controlName Name of the FormControlComponent.
-   * @returns Boolean value true when the FormField has an error, false when not.
+   * Prüft ob die FormGroup der Passwörter einen Fehler hat
+   * @param errorName Name des Fehlers
+   * @param controlName Name der FormControlComponent.
+   * @returns Boolean Gibt ein Boolean zurück, true wenn ein Fehler in der FormGroup enthalten ist
    */
   public hasError = (controlName: string, errorName: string): boolean => {
     return this.passwordForm.controls[controlName].hasError(errorName);

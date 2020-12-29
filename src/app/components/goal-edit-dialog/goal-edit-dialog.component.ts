@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Goal } from 'src/app/entities/goal';
 import { SubGoal } from 'src/app/entities/sub-goal';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-goal-edit-dialog',

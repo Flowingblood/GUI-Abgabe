@@ -1,23 +1,23 @@
-<h2 style="text-align: center;" mat-dialog-title>Benutzer hinzufügen</h2>
+<h2 class="center_text" mat-dialog-title>Benutzer hinzufügen</h2>
 
-<mat-form-field >
+<mat-form-field>
     <mat-label>Vorname</mat-label>
     <input matInput [(ngModel)]="firstName" required>
 </mat-form-field>
 
-<mat-form-field style="padding-left: 5px;">
-    <mat-label >Nachname</mat-label>
+<mat-form-field class="left_padding_5">
+    <mat-label>Nachname</mat-label>
     <input matInput [(ngModel)]="lastName" required>
 </mat-form-field>
 
 <br>
 
-<mat-form-field >
+<mat-form-field>
     <mat-label>Username</mat-label>
     <input matInput [(ngModel)]="username" required>
 </mat-form-field>
 
-<mat-form-field  style="padding-left: 5px;">
+<mat-form-field class="left_padding_5">
     <mat-label>Passwort</mat-label>
     <input type="password" matInput [(ngModel)]="password" required>
 </mat-form-field>
@@ -29,6 +29,6 @@
 </mat-slide-toggle>
 
 <div mat-dialog-actions align="end">
-    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
-    <button (click)="handleSave()" color="primary" type="submit" mat-raised-button >Speichern</button>
+    <button (click)="handleAbort()" color="warn" type="button" mat-raised-button>Abbrechen</button>
+    <button (click)="handleSave()" color="primary" type="submit" mat-raised-button>Speichern</button>
 </div>

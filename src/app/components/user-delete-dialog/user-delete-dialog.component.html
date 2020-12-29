@@ -1,8 +1,10 @@
-<h2 style="text-align: center;" mat-dialog-title>Möchten Sie den Nutzer {{user.firstName + " " + user.lastName}} wirklich löschen ?</h2>
+<h2 class="center_text" mat-dialog-title>Möchten Sie den Nutzer {{user.firstName + " " + user.lastName}}
+    wirklich löschen ?</h2>
 
 
 <div mat-dialog-actions align="end">
+
+    <button (click)="handleAbort()" type="button" color="warn" mat-raised-button>Abbrechen</button>
+    <button (click)="handleDelete()" color="primary" type="submit" mat-raised-button>Löschen</button>
     
-    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
-    <button (click)="handleDelete()" color="primary" type="submit" mat-raised-button >Löschen</button>
 </div>

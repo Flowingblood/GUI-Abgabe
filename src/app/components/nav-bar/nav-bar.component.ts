@@ -10,11 +10,18 @@ import { PasswordEditDialogComponent } from '../password-edit-dialog/password-ed
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
+
+  //Momentaner Nutzer
   currentUser: User;
 
   // Passwort ändern Popupdialog
   editPasswordDialogRef: MatDialogRef<PasswordEditDialogComponent>;
 
+  /**
+   * Klassen Konstruktor
+   * @param authService AuthorizationService für den momentanen Nutzer
+   * @param passwordEditDialog Der Dialog zum Passwort ändern
+   */
   constructor(private authService: AuthorizationService, public passwordEditDialog: MatDialog,) {
     authService
       .getLoggedInUser()
@@ -23,17 +30,22 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Legt den Nutzer aus
+   */
   handleLogOut(): void {
     this.authService.logout();
   }
 
 
+  /**
+   * Öffnet den Passwort Änderungs Dialog 
+   * @param $event Das aufgerufene Event
+   */
   handlePasswordChange($event: any): void {
     $event.stopPropagation();
     this.editPasswordDialogRef = this.passwordEditDialog.open(PasswordEditDialogComponent);
-    this.editPasswordDialogRef.afterClosed().subscribe((result) => {
-
-    });
+    this.editPasswordDialogRef.afterClosed().subscribe((result) => {});
   }
 
 }

@@ -8,20 +8,29 @@ import { User } from 'src/app/entities/user';
   styleUrls: ['./user-add-dialog.component.scss'],
 })
 export class UserAddDialogComponent implements OnInit {
+
+  //Alle Informationen des Nutzers
   username: string;
   firstName: string;
   lastName: string;
   password: string;
   admin: boolean;
 
+  /**
+   * Klassen Konstruktor
+   * @param currDialog  der momentane Dialog für schließ Aktionen
+   */
   constructor(private currDialog: MatDialogRef<UserAddDialogComponent>) {
     //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
     currDialog.disableClose = true;
-
   }
 
   ngOnInit(): void {}
 
+  /**
+   * Prüft ob alle Eingaben vollständig sind und erstellt einen Nutzer mit diesen,
+   * gibt diesen dann weiter
+   */
   handleSave(): void {
     if (
       this.username.length !== 0 &&
@@ -43,6 +52,9 @@ export class UserAddDialogComponent implements OnInit {
     }
   }
 
+  /**
+   * Schließt den momentanen Dialog
+   */
   handleAbort(): void {
     this.currDialog.close(null);
   }
