@@ -33,12 +33,15 @@ export class PasswordEditDialogComponent implements OnInit {
   }
 
   handleSave(): void{
-    if(this.passwordForm.get("password").value === this.passwordForm.get("passwordValidation").value){
+    if(this.passwordForm.get("password").value === "" || this.passwordForm.get("passwordValidation").value == ""){
+      this.snackBar.open("Füllen Sie bitte alle Felder aus !","Okay");
+    }
+    else if(this.passwordForm.get("password").value === this.passwordForm.get("passwordValidation").value){
       this.currUser.password = this.passwordForm.get("password").value;
       this.userService.modifyUser(this.currUser);
-      //TODO Check
+      this.currDialog.close(null);
     }else{
-      this.snackBar.open("Passwörter sind nicht gleich","Okay");
+      this.snackBar.open("Passwörter sind nicht gleich !","Okay");
     }
   }
 
