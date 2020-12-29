@@ -1,13 +1,22 @@
 # Usability-Test Konzept
+In diesem Konzept wird beschrieben die das testen der Anwendungen von User stattfinden kann. Dabei ist dieses Konzept in Freie und strikte Tests eingeteilt.
+
+## Erfasste Metriken in allen Tests:
+- Aufgetretene Fehler
+- Nicht erfüllen von Anforderungen(erkannbar an "Prüfe ob")
+- Stimmungsbild / Meinung der Nutzer
+
+## Weitere Metriken in strikten Tests:
+- Benötigte Zeit
+- Abschluss der Aufgabe
+
+---
 # Wichtige Zustände
 ## Unangemeldet
-TODO
+Der Benutzer hat sich nicht über das Login Formular angemeldet und es ist keine Navigationsleiste zu sehen.
 ## Angemeldet
-TODO
+Der Benutzer hat sich über das Login Formular angemeldet und es ist eine Navigationsleiste zu sehen.
 # Ausgangssituationen
-## Ohne Interaktion
-Der Nutzer öffnet die Webseite über den direkten Hauptlink ohne weiter Unterpfade und führt keine weitere Interaktionen mit der Webseite durch.
-
 ## Unangemeldet
 Der Nutzer befindet sich ungemeldet auf der Login Seite.  
 Die Login Seite befindet sich im Unterpfad ``/login``.
@@ -19,7 +28,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Kunden Benutzer Ac
 Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer Account über das Login Formular angemeldet und befindet sich jetzt aus der Übersicht seiner eigenen Ziele.
 
 # Tests
-## Allgemeine-Tests
+## Allgemeine-Tests (Freie Tests)
 ### Freies Testen der Ziele Übersicht
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Benutzer intuitive dazu in der Lage sind Ziele anzulegen, zu bearbeiten und abzuhaken sowie zu löschen.  
 ``Ausgangssituation``: Angemeldet als Kunde  
@@ -32,7 +41,7 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 ``Vorbedingung``: Die User Übersicht muss geöffnet sein.  
 ``Schritt für Schritt``:  
 1. Tester frei Testen lassen.
-## Anmeldungs-Tests
+## Anmeldungs-Tests (Strikte Tests)
 ### Kunden-Anmeldung
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob die Anmeldung eines Kunden Benutzer Accounts über das Login Formular für ein auf der Login Seite funktioniert.  
 ``Ausgangssituation``: Unangemeldet  
@@ -125,7 +134,8 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 3. Auf den Menü Punkt "Ziele" klicken.
 4. Prüfen ob die eigenen Ziele angezeigt werden.
 
-## Ziele-Tests
+---
+## Ziele-Tests (Strikte Tests)
 ### Anlegen von Zielen
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein Ziel anzulegen.  
 ``Ausgangssituation``: Angemeldet als Kunde oder Angemeldet als Trainer  
@@ -246,7 +256,8 @@ Der Nutzer hat sich auf der Login Seite erfolgreich mit einem Trainer Benutzer A
 7. Prüfen ob das Unterziel nun nicht mehr sichtbar ist.
 8. Prüfen ob sich die Prozentleiste angepasst hat.
 
-## User-Tests
+---
+## User-Tests (Strikte Tests)
 ### Anlegen von Usern
 ``Kurzbeschreibung``: Bei diesem Test wird geprüft ob es möglich ist ein User anzulegen   
 ``Ausgangssituation``: Angemeldet als Trainer  
