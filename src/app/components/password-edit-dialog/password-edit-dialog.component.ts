@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from 'src/app/entities/user';
 import { AuthorizationService } from 'src/app/services/authorization.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-password-edit-dialog',
@@ -11,13 +13,16 @@ import { AuthorizationService } from 'src/app/services/authorization.service';
 })
 export class PasswordEditDialogComponent implements OnInit {
 
+  currUser: User;
+
   passwordForm: FormGroup = new FormGroup({
     password: new FormControl('', [Validators.required]),
     passwordValidation: new FormControl('', [Validators.required]),
   });
 
-  constructor(authService: AuthorizationService, private currDialog: MatDialogRef<PasswordEditDialogComponent>, public snackBar: MatSnackBar) { 
+  constructor(public authService: AuthorizationService, private currDialog: MatDialogRef<PasswordEditDialogComponent>, public snackBar: MatSnackBar,public userService: UserService) { 
     currDialog.disableClose = true;
+    this.currUser = this.authService.getCurrentLoggedInUser();
   }
 
   ngOnInit(): void {
@@ -29,7 +34,9 @@ export class PasswordEditDialogComponent implements OnInit {
 
   handleSave(): void{
     if(this.passwordForm.get("password").value === this.passwordForm.get("passwordValidation").value){
-      //TODO
+      this.currUser.password = this.passwordForm.get("password").value;
+      this.userService.modifyUser(this.currUser);
+      //TODO Check
     }else{
       this.snackBar.open("Passwörter sind nicht gleich","Okay");
     }
