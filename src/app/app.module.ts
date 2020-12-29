@@ -17,6 +17,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserAddDialogComponent } from './components/user-add-dialog/user-add-dialog.component';
 import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-delete-dialog.component';
+import { PasswordEditDialogComponent } from './components/password-edit-dialog/password-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserDeleteDialogComponent } from './components/user-delete-dialog/user-
     UsersComponent,
     UserAddDialogComponent,
     UserDeleteDialogComponent,
+    PasswordEditDialogComponent,
   ],
   imports: [
     BrowserModule,
