@@ -10,23 +10,41 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./goal-edit-dialog.component.scss'],
 })
 export class GoalEditDialogComponent implements OnInit {
+
+  //Goal oder SubGoal Objekt für den Dialog
   goal: Goal | SubGoal;
 
+  //Zielname
   goalName: string;
 
+  /**
+   * Klassen Konstruktor
+   * @param currDialog der momentane Dialog
+   */
   constructor(private currDialog: MatDialogRef<GoalEditDialogComponent>) {
+    //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
     currDialog.disableClose = true;
   }
-
+  /**
+   * Initialisiert den Zielnamen
+   */
   ngOnInit(): void {
     this.goalName = this.goal.name;
   }
 
+  /**
+   * Schließt den momentanen Dialog wenn etwas eingegeben wurde und gibt diesem das Zielname mit
+   */
   handleSave(): void {
-    this.goal.name = this.goalName;
-    this.currDialog.close(this.goal);
+    if(this.goalName.length >0){
+      this.goal.name = this.goalName;
+      this.currDialog.close(this.goalName);
+    }
   }
 
+  /**
+   * Schließt den momentanen Dialog und gibt ein null mit
+   */
   handleAbort(): void {
     this.currDialog.close(null);
   }

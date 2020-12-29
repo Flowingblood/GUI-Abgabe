@@ -12,7 +12,8 @@ export class UserDeleteDialogComponent implements OnInit {
   user: User;
 
   constructor(private currDialog: MatDialogRef<UserDeleteDialogComponent>) {
-    this.currDialog.disableClose = true;
+    //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
+    currDialog.disableClose = true;
   }
   ngOnInit(): void {
   }

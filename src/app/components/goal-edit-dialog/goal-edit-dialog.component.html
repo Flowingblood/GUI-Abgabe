@@ -1,13 +1,13 @@
+<h2 class="center_text" mat-dialog-title>Ziel bearbeiten</h2>
 
-<h2 style="text-align: center;" mat-dialog-title>Ziel bearbeiten</h2>
+<mat-form-field class="full_width">
 
-<mat-form-field style="width: 100%;">
     <mat-label>Ziel Name</mat-label>
-    <input matInput [(ngModel)]="goalName">
+    <input matInput [(ngModel)]="goalName" required>
 
 </mat-form-field>
 
 <div mat-dialog-actions align="end">
-    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
+    <button (click)="handleAbort()" color="warn" type="button" mat-raised-button >Abbrechen</button>
     <button (click)="handleSave()" color="primary" type="submit" mat-raised-button >Speichern</button>
 </div>

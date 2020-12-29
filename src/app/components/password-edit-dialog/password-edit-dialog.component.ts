@@ -21,6 +21,7 @@ export class PasswordEditDialogComponent implements OnInit {
   });
 
   constructor(public authService: AuthorizationService, private currDialog: MatDialogRef<PasswordEditDialogComponent>, public snackBar: MatSnackBar,public userService: UserService) { 
+    //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
     currDialog.disableClose = true;
     this.currUser = this.authService.getCurrentLoggedInUser();
   }

@@ -1,13 +1,15 @@
-<h2 style="text-align: center;" mat-dialog-title>Ziel hinzufügen</h2>
+<h2 class="center_text" mat-dialog-title>Ziel hinzufügen</h2>
 
-<mat-form-field style="width: 100%;">
+<mat-form-field class="full_width">
+    
     <mat-label>Ziel Name</mat-label>
-    <input matInput [(ngModel)]="goalName">
+    <input matInput [(ngModel)]="goalName" required>
 
 </mat-form-field>
 
 <div mat-dialog-actions align="end">
     
-    <button (click)="handleAbort()"  type="button" color="warn" mat-raised-button >Abbrechen</button>
-    <button (click)="handleSave()" color="primary" type="submit" mat-raised-button >Speichern</button>
+    <button (click)="handleAbort()" type="button" color="warn" mat-raised-button >Abbrechen</button>
+    <button (click)="handleSave()"  type="submit" color="primary" mat-raised-button >Speichern</button>
+
 </div>

@@ -16,7 +16,10 @@ export class UserEditDialogComponent implements OnInit {
   password: string;
   admin: boolean;
 
-  constructor(private currDialog: MatDialogRef<UserEditDialogComponent>) {}
+  constructor(private currDialog: MatDialogRef<UserEditDialogComponent>) {
+    //Lässt das Dialog beim Klicken ausserhalb nicht schließen 
+    currDialog.disableClose = true;
+  }
 
   ngOnInit(): void {
     this.username = this.user.username;
