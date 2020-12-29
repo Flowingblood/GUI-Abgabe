@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/app/entities/user';
+import { UserBuilder } from '../../builders/user-builder';
 
 @Component({
   selector: 'app-user-add-dialog',
@@ -38,15 +39,13 @@ export class UserAddDialogComponent implements OnInit {
       this.lastName.length !== 0 &&
       this.password.length !== 0
     ) {
-      const user: User = {
-        id: 0,
-        username: this.username,
-        firstName: this.firstName,
-        lastName: this.lastName,
-        password: this.password,
-        permission: this.admin,
-        scopeList: [],
-      };
+      const user: User = new UserBuilder()
+        .username(this.username)
+        .firstname(this.firstName)
+        .lastname(this.lastName)
+        .password(this.password)
+        .permission(this.admin)
+        .build();
 
       this.currDialog.close(user);
     }
