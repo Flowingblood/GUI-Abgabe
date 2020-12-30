@@ -19,9 +19,14 @@ export class GoalsGuard implements CanActivate {
     private authService: AuthorizationService
   ) {}
 
+  /**
+   * Prüft ob der Benutzer angemeldet ist und ob er ein Trainer ist,
+   * falls er ein Kunde ist, darf er nur seine eigenen Ziele öffnen.
+   * Wenn er ein Trainer ist, darf er auch die Ziele von anderen Benutzern öffnen.
+   * @param route zu öffnene Route
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
   ): boolean {
     if (this.authService.isLoggedIn()) {
       const openUserId = +route.paramMap.get('id');

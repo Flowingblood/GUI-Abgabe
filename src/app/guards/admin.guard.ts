@@ -17,6 +17,10 @@ export class AdminGuard implements CanActivate {
     private authService: AuthorizationService
   ) {}
 
+  /**
+   * Prüft ob der Benutzer angemeldet ist und ob er ein Trainer ist,
+   * ansonsten darf er die aufgerufene Seite nicht öffnen
+   */
   canActivate(): boolean {
     if (
       this.authService.isLoggedIn() &&
