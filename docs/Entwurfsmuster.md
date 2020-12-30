@@ -1,6 +1,10 @@
 # Entwurfsmuster
 In diesem Dokument wird erklärt welche Entwurfsmuster wir in welchen Typescript Klassen verwendet haben.
 
+# Dependency Injection
+Angular bietet von Haus aus einen Dependency Injektor an. 
+Mithilfe von diesem bekommen fast alle Componenten und Services in den Construktor die geforderten Objekte übergeben.
+
 # Services als Fassade
 In diesem Projekt gibt es mehrere Services.  
 Jeder dieser Services hat einen spezifischen Nutzern. Dabei stellen diese vereinfachte Methoden zur Verfügung und die Services kümmern sich dann um die entsprechende Weiterverarbeitung.
