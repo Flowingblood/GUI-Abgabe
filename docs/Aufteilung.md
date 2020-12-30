@@ -14,7 +14,7 @@
 - Admin Guard
   
 ### Quellcode Kommentare
-Die obenen Services, Compnents und Guard kommentiert
+Die obenen Services, Components und Guard kommentiert
 
 ### Beschreibung des Frameworks
 - Aufbau einer Angular Anwendung
@@ -40,7 +40,7 @@ Die obenen Services, Compnents und Guard kommentiert
 - Goals Guard
 
 ### Quellcode Kommentare
-Die obenen Services, Compnents und Guard kommentiert
+Die obenen Services, Components und Guard kommentiert
 
 ### Beschreibung des Frameworks
 - Was im Projekt verwendet wird
