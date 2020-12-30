@@ -1,10 +1,11 @@
 <mat-toolbar *ngIf="this.currentUser !== null">
   <mat-toolbar-row>
     <button mat-raised-button routerLink="./goals">Ziele</button>
+
     <button *ngIf="currentUser.permission" mat-raised-button class="margin_left_1"
       routerLink="./users">Nutzerübersicht</button>
 
-    <span class="right_span"></span>
+    <span class="nav_bar_align_right"></span>
 
     <button (click)="handlePasswordChange($event)" mat-raised-button>
       Passwort ändern
