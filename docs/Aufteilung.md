@@ -56,3 +56,4 @@ Die obenen Services, Components und Guard kommentiert
 - Beschreibung der Entwurfsmuster
 - Prototyp
 - Kommentierung der Prototypen mit Gestaltgesetzen und Infos zu menschlichen Wahrnehmung
+- Unit Tests
