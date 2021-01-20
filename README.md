@@ -11,7 +11,7 @@ Um dieses Projekt zu starten reicht ein ``ng serve -o`` mit installierter Angual
 3. ``ng test`` - Startet den Chrom Webbrowser um die Tests durchzuführen. 
 
 Die einzelnen Unit Tests sind immer in den jeweiligen ``.spec.ts`` zu finden.  
-[IdService Unit Tests](src\app\services\id.service.spec.ts)
+[IdService Unit Tests](src/app/services/id.service.spec.ts)
 # Dokumentation
 Die gesamte weitere Dokumentation für dieses Projekt ist in den Typescript Klassen selbst und in dem [docs](docs/) Ordner zu finden.
 
