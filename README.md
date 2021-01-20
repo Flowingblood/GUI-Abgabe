@@ -36,3 +36,13 @@ Die gesamte weitere Dokumentation für dieses Projekt ist in den Typescript Klas
    ^ ------------- Goal Id Teil
 ^ ---------------- Sub Goal Id Teil
 ```
+
+## Informationsarchitektur
+![](docs/Informationsarchitektur.jpg)
+
+## Wireframes
+![](docs/Wireframes.jpg)
+
+## Gestaltgesetze und Menschlichen Wahrnehmung
+![](docs/Gestaltgesetze%20und%20Menschlichen%20Wahrnehmung.jpg)
+
