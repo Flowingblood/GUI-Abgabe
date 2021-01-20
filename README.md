@@ -47,4 +47,5 @@ Die gesamte weitere Dokumentation für dieses Projekt ist in den Typescript Klas
 ![](docs/Gestaltgesetze%20und%20Menschlichen%20Wahrnehmung.jpg)
 
 ##Miro Link
-https://miro.com/app/board/o9J_laV5_68=/
+[MIRO LINK](https://miro.com/app/board/o9J_laV5_68=/)
+
